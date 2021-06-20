@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,9 +19,21 @@ Route::get('/', function () {
     return view('admin.pages.home');
 });
 
-Route::get('kegiatan', [KegiatanController::class, 'index'])->name('list.kegiatan');
-Route::get('kegiatan/tambah', [KegiatanController::class, 'create'])->name('tambah.kegiatan');
-Route::get('kegiatan/edit/{id}', [KegiatanController::class, 'edit'])->name('edit.kegiatan');
-Route::post('kegiatan/store', [KegiatanController::class, 'store'])->name('add.kegiatan');
-Route::post('kegiatan/update/{id}', 'KegiatanController@update')->name('update.kegiatan');
-Route::get('/kegiatan/delete/{id}', 'KegiatanController@destroy')->name('delete.kegiatan');
+Auth::routes();
+/**
+ * route for admin
+ */
+
+//group route with prefix "admin"
+Route::prefix('admin')->group(function () {
+
+    //group route with middleware "auth"
+    Route::group(['middleware' => 'auth'], function () {
+
+        //route dashboard
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard.index');
+    });
+});
+
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

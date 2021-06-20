@@ -1,3 +1,9 @@
+## BANTU GERAK WEBSITE
+- AUTH Admin
+- CRUD Dashboard
+- CRUD Dashboard
+- CRUD Dashboard
+- CRUD Dashboard
 ## Instalasi
 - git clone https://github.com/iqbaliamal/Bantu-Gerak_A_Kelompok_3_WEB.git
 - cd Bantu-Gerak_A_Kelompok_3_WEB
