@@ -21,7 +21,7 @@
           <a href="#" class="nav-link"><i class="fas fa-fire"></i><span>Campaigns</span></a>
         </li>
         <li class="{{ request()->is('admin/kegiatan') ? 'active' : '' }}">
-          <a href="#" class="nav-link"><i class="fas fa-fire"></i><span>Donaturs</span></a>
+          <a href="/admin/donatur" class="nav-link"><i class="fas fa-fire"></i><span>Donaturs</span></a>
         </li>
         <li class="{{ request()->is('admin/kegiatan') ? 'active' : '' }}">
           <a href="#" class="nav-link"><i class="fas fa-fire"></i><span>Donations</span></a>
