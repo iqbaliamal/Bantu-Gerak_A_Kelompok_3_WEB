@@ -15,7 +15,7 @@
 
         <li class="menu-header">Main</li>
         <li class="{{ request()->is('admin/kegiatan') ? 'active' : '' }}">
-          <a href="#" class="nav-link"><i class="fas fa-fire"></i><span>Kategori</span></a>
+          <a href="/admin/category" class="nav-link"><i class="fas fa-fire"></i><span>Kategori</span></a>
         </li>
         <li class="{{ request()->is('admin/kegiatan') ? 'active' : '' }}">
           <a href="#" class="nav-link"><i class="fas fa-fire"></i><span>Campaigns</span></a>
