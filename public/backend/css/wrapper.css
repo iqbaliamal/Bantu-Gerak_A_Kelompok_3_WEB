@@ -1,0 +1,8 @@
+.master-wrapper{
+
+    position: relative;
+    top: 100px;
+    left: 170px;
+    min-height: calc(100vh - 148px);
+
+}
