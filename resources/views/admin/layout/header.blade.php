@@ -18,6 +18,7 @@
   <!-- Template CSS -->
   <link rel="stylesheet" href="{{asset('backend/css/style.css')}}">
   <link rel="stylesheet" href="{{asset('backend/css/components.css')}}">
+  <link rel="stylesheet" href="{{asset('backend/css/wrapper.css')}}">
 
     <!-- Custom CSS -->
     @stack('customcss')
