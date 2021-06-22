@@ -2,6 +2,10 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\admin\DonaturController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CampaignController;
+use App\Http\Controllers\DonationController;
+use App\Http\Controllers\KategoriController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -16,9 +20,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('admin.pages.home');
-});
+// Route::get('/', function () {
+//     return view('admin.pages.home');
+// });
 
 Auth::routes();
 /**
@@ -32,21 +36,42 @@ Route::prefix('admin')->group(function () {
     Route::group(['middleware' => 'auth'], function () {
 
         //route dashboard
-        Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard.index');
+        Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard.index');
 
-        Route::get('/donatur', [DonaturController::class, 'index'])->name('admin.donatur.index');
+        // Kategori
+        Route::get('kategori', [KategoriController::class, 'index'])->name('list.kategori');
+        Route::post('kategori/store', [KategoriController::class, 'store'])->name('add.kategori');
+        Route::post('kategori/update/{id}', [KategoriController::class, 'update'])->name('update.kategori');
+        Route::get('kategori/delete/{id}', [KategoriController::class, 'destroy'])->name('delete.kategori');
 
-        Route::post('/donatur', [DonaturController::class, 'store'])->name('admin.donatur.store');
+        // Kategori
+        Route::get('campaign', [CampaignController::class, 'index'])->name('list.campaign');
+        Route::get('campaign/create', [CampaignController::class, 'create'])->name('create.campaign');
+        Route::post('campaign/store', [CampaignController::class, 'store'])->name('add.campaign');
+        Route::post('campaign/edit/{id}', [CampaignController::class, 'edit'])->name('edit.campaign');
+        Route::post('campaign/update/{id}', [CampaignController::class, 'update'])->name('update.campaign');
+        Route::get('campaign/delete/{id}', [CampaignController::class, 'destroy'])->name('delete.campaign');
 
-        Route::get('/donatur/create', [DonaturController::class, 'create'])->name('admin.donatur.create');
+        // Donatur
+        Route::get('donatur', [DonaturController::class, 'index'])->name('list.donatur');
+        Route::post('donatur/store', [DonaturController::class, 'store'])->name('add.donatur');
+        Route::get('donatur/create', [DonaturController::class, 'create'])->name('create.donatur');
+        Route::get('donatur/edit/{id}', [DonaturController::class, 'edit'])->name('edit.donatur');
+        Route::post('donatur/update/{id}', [DonaturController::class, 'update'])->name('update.donatur');
+        Route::get('donatur/detele', [DonaturController::class, 'destroy'])->name('delete.donatur');
 
-        Route::get('/donatur/{donatur}/edit', [DonaturController::class, 'edit'])->name('admin.donatur.edit');
+        // Donation
+        Route::get('donation', [DonationController::class, 'index'])->name('list.donation');
+        Route::get('donation/create', [DonationController::class, 'create'])->name('create.donation');
+        Route::post('donation/store', [DonationController::class, 'store'])->name('add.donation');
+        Route::get('donation/edit/{id}', [DonationController::class, 'edit'])->name('edit.donation');
+        Route::post('donation/update/{id}', [DonationController::class, 'update'])->name('update.donation');
+        Route::get('donation/detele', [DonationController::class, 'destroy'])->name('delete.donation');
 
-        Route::patch('/donatur/{donatur}', [DonaturController::class, 'update'])->name('admin.donatur.update');
-
+        Route::post('user/edit-profile/{id}', [AdminController::class, 'editProfile'])->name('editProfile.user');
+        Route::post('user/update-profile/{id}', [AdminController::class, 'updateProfile'])->name('updateProfile.user');
     });
 });
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-

@@ -14,35 +14,22 @@
         </li>
 
         <li class="menu-header">Main</li>
-        <li class="{{ request()->is('admin/kegiatan') ? 'active' : '' }}">
-          <a href="#" class="nav-link"><i class="fas fa-fire"></i><span>Kategori</span></a>
+        <li class="{{ request()->is('admin/kategori') ? 'active' : '' }}">
+          <a href="{{route('list.kategori')}}" class="nav-link"><i class="fas fa-fire"></i><span>Kategori</span></a>
         </li>
-        <li class="{{ request()->is('admin/kegiatan') ? 'active' : '' }}">
-          <a href="#" class="nav-link"><i class="fas fa-fire"></i><span>Campaigns</span></a>
+        <li class="{{ request()->is('admin/campaign') ? 'active' : '' }}">
+          <a href="{{route('list.campaign')}}" class="nav-link"><i class="fas fa-fire"></i><span>Campaigns</span></a>
         </li>
-        <li class="{{ request()->is('admin/kegiatan') ? 'active' : '' }}">
-          <a href="/admin/donatur" class="nav-link"><i class="fas fa-fire"></i><span>Donaturs</span></a>
+        <li class="{{ request()->is('admin/donatur') ? 'active' : '' }}">
+          <a href="{{route('list.donatur')}}" class="nav-link"><i class="fas fa-fire"></i><span>Donaturs</span></a>
         </li>
-        <li class="{{ request()->is('admin/kegiatan') ? 'active' : '' }}">
-          <a href="#" class="nav-link"><i class="fas fa-fire"></i><span>Donations</span></a>
+        <li class="{{ request()->is('admin/donation') ? 'active' : '' }}">
+          <a href="{{route('list.donation')}}" class="nav-link"><i class="fas fa-fire"></i><span>Donations</span></a>
         </li>
-        {{-- <li class="{{ request()->is('admin/donasi') || request()->is('admin/donatur') || request()->is('admin/ajukan-donasi')? 'active' : '' }} dropdown">
-            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Donasi</span></a>
-            <ul class="dropdown-menu">
-              <li><a class="{{ request()->is('admin/donasi') ? 'active' : '' }} nav-link" href="{{route('list.donasi')}}">Donasi</a></li>
-              <li><a class="{{ request()->is('admin/donatur') ? 'active' : '' }} nav-link" href="{{route('list.donatur')}}">Donatur</a></li>
-              <li><a class="{{ request()->is('admin/ajukan-donasi') ? 'active' : '' }} nav-link" href="{{route('list.ajukan-donasi')}}">Ajukan Donasi</a></li>
-            </ul>
-            <ul class="dropdown-menu">
-              <li><a class="{{ request()->is('admin/donasi') ? 'active' : '' }} nav-link" href="">Donasi</a></li>
-              <li><a class="{{ request()->is('admin/donatur') ? 'active' : '' }} nav-link" href="#">Donatur</a></li>
-            </ul>
-            <li><a class="{{ request()->is('admin/ajukan-donasi') ? 'active' : '' }} nav-link" href="#"><i class="fas fa-columns"></i><span>Ajukan Donasi</span></a></li>
-        </li> --}}
 
         <li class="menu-header">Profil</li>
-        <li class="{{ request()->is('admin/kegiatan') ? 'active' : '' }}">
-          <a href="#" class="nav-link"><i class="fas fa-fire"></i><span>Profil Saya</span></a>
+        <li class="{{ request()->is('admin/profil') ? 'active' : '' }}">
+          <a href="{{ route('editProfile.user', ['id' =>  Auth::user()->id]) }}" class="nav-link"><i class="fas fa-fire"></i><span>Profil Saya</span></a>
         </li>
 
       <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
