@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\admin\DonaturController;
+use App\Http\Controllers\admin\CategoryController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -43,6 +44,16 @@ Route::prefix('admin')->group(function () {
         Route::get('/donatur/{donatur}/edit', [DonaturController::class, 'edit'])->name('admin.donatur.edit');
 
         Route::patch('/donatur/{donatur}', [DonaturController::class, 'update'])->name('admin.donatur.update');
+
+        Route::get('/category', [CategoryController::class, 'index'])->name('admin.category.index');
+
+        Route::post('/category', [CategoryController::class, 'store'])->name('admin.category.store');
+
+        Route::get('/category/create', [CategoryController::class, 'create'])->name('admin.category.create');
+
+        Route::get('/category/{category}/edit', [CategoryController::class, 'edit'])->name('admin.category.edit');
+
+        Route::patch('/category/{category}', [CategoryController::class, 'update'])->name('admin.category.update');
 
     });
 });
