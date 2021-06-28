@@ -10,28 +10,26 @@
 
         <li class="menu-header">Dashboard</li>
         <li class="{{ request()->is('admin') ? 'active' : '' }}">
-          <a href="/admin" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+          <a href="{{route('admin.dashboard.index')}}" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
         </li>
 
         <li class="menu-header">Main</li>
-        <li class="{{ request()->is('admin/kategori') ? 'active' : '' }}">
-          <a href="{{route('list.kategori')}}" class="nav-link"><i class="fas fa-fire"></i><span>Kategori</span></a>
-        <li class="{{ request()->is('admin/kegiatan') ? 'active' : '' }}">
-          <a href="/admin/category" class="nav-link"><i class="fas fa-fire"></i><span>Kategori</span></a>
+        <li class="{{ request()->is('admin/category') ? 'active' : '' }}">
+          <a href="{{route('admin.category.index')}}" class="nav-link"><i class="fas fa-fire"></i><span>Kategori</span></a>
         </li>
         <li class="{{ request()->is('admin/campaign') ? 'active' : '' }}">
-          <a href="{{route('list.campaign')}}" class="nav-link"><i class="fas fa-fire"></i><span>Campaigns</span></a>
+          <a href="#" class="nav-link"><i class="fas fa-fire"></i><span>Campaigns</span></a>
         </li>
-        <li class="{{ request()->is('admin/donatur') ? 'active' : '' }}">
+        {{-- <li class="{{ request()->is('admin/donatur') ? 'active' : '' }}">
           <a href="{{route('list.donatur')}}" class="nav-link"><i class="fas fa-fire"></i><span>Donaturs</span></a>
-        </li>
+        </li> --}}
         <li class="{{ request()->is('admin/donation') ? 'active' : '' }}">
-          <a href="{{route('list.donation')}}" class="nav-link"><i class="fas fa-fire"></i><span>Donations</span></a>
+          <a href="#" class="nav-link"><i class="fas fa-fire"></i><span>Donations</span></a>
         </li>
 
         <li class="menu-header">Profil</li>
         <li class="{{ request()->is('admin/profil') ? 'active' : '' }}">
-          <a href="{{ route('editProfile.user', ['id' =>  Auth::user()->id]) }}" class="nav-link"><i class="fas fa-fire"></i><span>Profil Saya</span></a>
+          <a href="#" class="nav-link"><i class="fas fa-fire"></i><span>Profil Saya</span></a>
         </li>
 
       <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
