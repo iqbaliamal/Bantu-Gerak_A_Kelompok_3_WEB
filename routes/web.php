@@ -7,6 +7,7 @@ use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DonaturController;
+use App\Http\Controllers\ProgramController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -45,6 +46,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/donatur', [DonaturController::class, 'index'])->name('admin.donatur.index');
         Route::get('/donation', [DonationController::class, 'index'])->name('admin.donation.index');
         Route::get('/donation/filter', [DonationController::class, 'filter'])->name('admin.donation.filter');
+        Route::resource('/program', ProgramController::class, ['as' => 'admin']);
         // Route::get('kategori', [KategoriController::class, 'index'])->name('list.kategori');
         // Route::post('kategori/store', [KategoriController::class, 'store'])->name('add.kategori');
         // Route::post('kategori/update/{id}', [KategoriController::class, 'update'])->name('update.kategori');
