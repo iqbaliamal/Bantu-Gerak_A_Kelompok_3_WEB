@@ -112,84 +112,6 @@
     </div>
 </div>
 
-@foreach($data as $category2)
-{{-- <div class="modal fade" id="edit{{ $loop->iteration }}" tabindex="-1" aria-labelledby="modalEdit"
-    aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modalEdit">Edit Kategori {{$category2->name}}</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form action="{{route('admin.category.update')}}" method="post">
-                <div class="modal-body">
-                    {{csrf_field()}}
-                    <div class="form-group">
-                        <label>Nama Kategori</label>
-                        <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
-                            value="{{ $category2->name }}" required>
-                    </div>
-                    @error('name')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-
-                    <div class="form-group">
-                        <label>Gambar</label>
-                        <img src="{{ $category2->image }}" alt="{{ $category2->name }}">
-                        <input type="file" class="form-control @error('image') is-invalid @enderror" name="image"
-                            value="{{ $category2->image }}" required>
-                    </div>
-                    @error('image')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-
-                    <div class="form-group">
-                        <label>Deskripsi</label>
-                        <input type="text" class="form-control @error('description') is-invalid @enderror" name="description"
-                            value="{{ $category2->description }}" required>
-                    </div>
-                    @error('description')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div> --}}
-
-<div class="modal fade" id="delete{{ $loop->iteration }}" tabindex="-1" aria-labelledby="modalDelete"
-    aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modalDelete">Hapus</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                Apakah kamu yakin untuk menghapusnya ?
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                <a href="{{route('admin.category.destroy', $category2->id)}}" id="{{ $category2->id }}" type="button"
-                    class="btn btn-danger">Hapus</a>
-            </div>
-        </div>
-    </div>
-</div>
 <script>
     //ajax delete
     function destroy(id) {
@@ -243,7 +165,6 @@
         })
     }
 </script>
-@endforeach
 
 @endsection
 

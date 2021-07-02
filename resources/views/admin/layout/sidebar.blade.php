@@ -18,13 +18,16 @@
           <a href="{{route('admin.category.index')}}" class="nav-link"><i class="fas fa-fire"></i><span>Kategori</span></a>
         </li>
         <li class="{{ request()->is('admin/campaign') ? 'active' : '' }}">
-          <a href="#" class="nav-link"><i class="fas fa-fire"></i><span>Campaigns</span></a>
+          <a href="{{route('admin.campaign.index')}}" class="nav-link"><i class="fas fa-fire"></i><span>Campaigns</span></a>
         </li>
         {{-- <li class="{{ request()->is('admin/donatur') ? 'active' : '' }}">
           <a href="{{route('list.donatur')}}" class="nav-link"><i class="fas fa-fire"></i><span>Donaturs</span></a>
         </li> --}}
+        <li class="{{ request()->is('admin/donatur') ? 'active' : '' }}">
+          <a href="{{route('admin.donatur.index')}}" class="nav-link"><i class="fas fa-fire"></i><span>Donatur</span></a>
+        </li>
         <li class="{{ request()->is('admin/donation') ? 'active' : '' }}">
-          <a href="#" class="nav-link"><i class="fas fa-fire"></i><span>Donations</span></a>
+          <a href="{{route('admin.donation.index')}}" class="nav-link"><i class="fas fa-fire"></i><span>Donations</span></a>
         </li>
 
         <li class="menu-header">Profil</li>

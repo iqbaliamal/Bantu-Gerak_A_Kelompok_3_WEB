@@ -12,6 +12,8 @@
 </div>
 </div>
 
+
+
 <!-- General JS Scripts -->
 <script src="{{asset('backend/modules/jquery.min.js')}}"></script>
 <script src="{{asset('backend/modules/popper.js')}}"></script>
@@ -33,5 +35,29 @@
 <!-- Template JS File -->
 <script src="{{asset('backend/js/scripts.js')}}"></script>
 <script src="{{asset('backend/js/custom.js')}}"></script>
+
+<script>
+    @if(session()->has('success'))
+
+    Swal.fire({
+        icon: 'success',
+        title: 'BERHASIL!',
+        text: '{{ session('success') }}',
+        showConfirmButton: false,
+        timer: 3000
+    })
+
+    @elseif(session()->has('error'))
+
+    Swal.fire({
+        icon: 'error',
+        text: 'GAGAL!',
+        title: '{{ session('error') }}',
+        showConfirmButton: false,
+        timer: 3000
+    })
+
+    @endif
+</script>
 </body>
 </html>

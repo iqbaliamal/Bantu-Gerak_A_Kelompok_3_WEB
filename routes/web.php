@@ -2,9 +2,11 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DonaturController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -27,7 +29,7 @@ Auth::routes();
 /**
  * route for admin
  */
-
+Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 //group route with prefix "admin"
 Route::prefix('admin')->group(function () {
 
@@ -39,6 +41,10 @@ Route::prefix('admin')->group(function () {
 
         // Category
         Route::resource('/category', CategoryController::class, ['as' => 'admin']);
+        Route::resource('/campaign', CampaignController::class, ['as' => 'admin']);
+        Route::get('/donatur', [DonaturController::class, 'index'])->name('admin.donatur.index');
+        Route::get('/donation', [DonationController::class, 'index'])->name('admin.donation.index');
+        Route::get('/donation/filter', [DonationController::class, 'filter'])->name('admin.donation.filter');
         // Route::get('kategori', [KategoriController::class, 'index'])->name('list.kategori');
         // Route::post('kategori/store', [KategoriController::class, 'store'])->name('add.kategori');
         // Route::post('kategori/update/{id}', [KategoriController::class, 'update'])->name('update.kategori');
@@ -95,4 +101,4 @@ Route::prefix('admin')->group(function () {
 });
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
