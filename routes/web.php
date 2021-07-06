@@ -7,7 +7,9 @@ use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DonaturController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\User\LandingpageControler;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -22,9 +24,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('admin.pages.home');
-// });
+Route::get('/', [LandingpageControler::class, 'index'])->name('user.landingpage.index');
 
 Auth::routes();
 /**
@@ -47,6 +47,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/donation', [DonationController::class, 'index'])->name('admin.donation.index');
         Route::get('/donation/filter', [DonationController::class, 'filter'])->name('admin.donation.filter');
         Route::resource('/program', ProgramController::class, ['as' => 'admin']);
+        Route::get('/profile', [ProfileController::class, 'index'])->name('admin.profile.index');
         // Route::get('kategori', [KategoriController::class, 'index'])->name('list.kategori');
         // Route::post('kategori/store', [KategoriController::class, 'store'])->name('add.kategori');
         // Route::post('kategori/update/{id}', [KategoriController::class, 'update'])->name('update.kategori');

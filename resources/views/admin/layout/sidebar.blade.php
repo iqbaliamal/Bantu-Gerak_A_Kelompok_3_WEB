@@ -15,29 +15,36 @@
 
         <li class="menu-header">Main</li>
         <li class="{{ request()->is('admin/category') ? 'active' : '' }}">
-          <a href="{{route('admin.category.index')}}" class="nav-link"><i class="fas fa-fire"></i><span>Kategori</span></a>
+          <a href="{{route('admin.category.index')}}" class="nav-link"><i class="fas fa-folder"></i><span>Kategori</span></a>
         </li>
         <li class="{{ request()->is('admin/campaign') ? 'active' : '' }}">
-          <a href="{{route('admin.campaign.index')}}" class="nav-link"><i class="fas fa-fire"></i><span>Campaigns</span></a>
+          <a href="{{route('admin.campaign.index')}}" class="nav-link"><i class="fas fa-flag"></i><span>Campaigns</span></a>
         </li>
         {{-- <li class="{{ request()->is('admin/donatur') ? 'active' : '' }}">
           <a href="{{route('list.donatur')}}" class="nav-link"><i class="fas fa-fire"></i><span>Donaturs</span></a>
         </li> --}}
         <li class="{{ request()->is('admin/donatur') ? 'active' : '' }}">
-          <a href="{{route('admin.donatur.index')}}" class="nav-link"><i class="fas fa-fire"></i><span>Donatur</span></a>
+          <a href="{{route('admin.donatur.index')}}" class="nav-link"><i class="fas fa-users"></i><span>Donatur</span></a>
         </li>
         <li class="{{ request()->is('admin/donation') ? 'active' : '' }}">
-          <a href="{{route('admin.donation.index')}}" class="nav-link"><i class="fas fa-fire"></i><span>Donations</span></a>
+          <a href="{{route('admin.donation.index')}}" class="nav-link"><i class="fas fa-chart-line"></i><span>Donations</span></a>
+        </li>
+        <li class="{{ request()->is('admin/program') ? 'active' : '' }}">
+          <a href="{{route('admin.program.index')}}" class="nav-link"><i class="fas fa-bookmark"></i><span>Program Kebaikan</span></a>
+        </li>
+        <li class="{{ request()->is('admin/faq') ? 'active' : '' }}">
+          <a href="#" class="nav-link"><i class="fas fa-question-circle"></i><span>FAQ</span></a>
         </li>
 
         <li class="menu-header">Profil</li>
         <li class="{{ request()->is('admin/profil') ? 'active' : '' }}">
-          <a href="#" class="nav-link"><i class="fas fa-fire"></i><span>Profil Saya</span></a>
+          <a href="#" class="nav-link"><i class="fas fa-user-circle"></i><span>Profil Saya</span></a>
         </li>
 
-      <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
+      {{-- <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
         <a href="https://getstisla.com/docs" class="btn btn-primary btn-lg btn-block btn-icon-split">
           <i class="fas fa-rocket"></i> Documentation
         </a>
-      </div>        </aside>
+      </div> --}}
+    </aside>
   </div>

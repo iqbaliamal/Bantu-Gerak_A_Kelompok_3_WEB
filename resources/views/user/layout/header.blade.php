@@ -18,14 +18,16 @@
 
   <!-- Vendor CSS Files -->
   <link href="{{asset('user/vendor/aos/aos.css')}}" rel="stylesheet">
-  <link href="{{asset('user/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{asset('backend/modules/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" >
   <link href="{{asset('user/vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
   <link href="{{asset('user/vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
   <link href="{{asset('user/vendor/glightbox/css/glightbox.min.css')}}" rel="stylesheet">
   <link href="{{asset('user/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
 
+
   <!-- Template Main CSS File -->
-  <link href="user/css/style.css" rel="stylesheet">
+  <link href="{{asset('user/css/style.css')}}" rel="stylesheet">
+  <link href="{{asset('user/css/app.css')}}" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Reveal - v4.3.0
@@ -58,39 +60,29 @@
     <div class="container d-flex justify-content-between">
 
       <div id="logo">
-        <h1><a href="index.html">Reve<span>al</span></a></h1>
+        {{-- <h1><a href="index.html">Reve<span>al</span></a></h1> --}}
         <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="user/img/logo.png" alt=""></a>-->
+        <a href="index.html"><img src="{{asset('user/img/logo.png')}}" class="navbar-logo" alt=""></a>
       </div>
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#services">Services</a></li>
-          <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
-          <li><a class="nav-link scrollto" href="#team">Team</a></li>
-          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+          <li><a class="nav-link scrollto active" href="#intro">Beranda</a></li>
+          <li><a class="nav-link scrollto" href="#campaign">Campaign</a></li>
+          <li><a class="nav-link scrollto" href="#program">Program</a></li>
+          <li><a class="nav-link scrollto " href="#publikasi">Publikasi</a></li>
+          <li class="dropdown"><a href="#"><span>Akun</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
+              <li><a href="#">Dashboard</a></li>
+              <li><a href="#">Login</a></li>
+              <hr>
+              <li><a href="#">Logout</a></li>
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
     </div>
   </header><!-- End Header -->
+
