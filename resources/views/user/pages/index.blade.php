@@ -33,6 +33,7 @@
 
             <div class="row">
                 @foreach ($campaigns as $campaign)
+                @if (Carbon\Carbon::parse( $campaign->max_date )->diffInDays( Carbon\Carbon::now())  >= 0)
                 <div class="col-lg-3">
                     <div class="card shadow box-campaign">
                         <img class="img-campaign" src="{{($campaign->image)}}">
@@ -50,11 +51,19 @@
                             </div>
                             <p class="card-text deadline"><b>{{ moneyFormat($campaign->total) }}</b> terkumpul dari <b>{{ moneyFormat($campaign->target_donation) }}</b> </p>
                             <div class="deadline">
-                                <p><b>{{ \Carbon\Carbon::parse( $campaign->max_date )->diffInDays( Carbon\Carbon::now()) }}</b> hari lagi</p>
+                                @if (\Carbon\Carbon::parse( $campaign->max_date )->diffInDays( Carbon\Carbon::now()) > 0)
+                                <p><b>{{ \Carbon\Carbon::parse( $campaign->max_date )->diffInDays( Carbon\Carbon::now()) }}</b> Hari lagi</p>
+                                @else
+                                <p><b>{{ \Carbon\Carbon::parse( $campaign->max_date )->diffInHours( Carbon\Carbon::now()) }}</b> Jam Lagi</p>
+                                @endif
                             </div>
                         </div>
                     </div>
                 </div>
+                @else
+
+                @endif
+
                 @endforeach
             </div>
         </div>
@@ -136,17 +145,21 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="campaignModalLongTitle">Modal title</h5>
+          {{-- <h5 class="modal-title" id="campaignModalLongTitle">Modal title</h5> --}}
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          ...
+          <div class="col-lg-12">
+              
+          </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+            <div class="col-lg-12 text-center">
+          {{-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> --}}
+          <button type="button" class="btn btn-primary">Donasi Sekarang !</button>
+            </div>
         </div>
       </div>
     </div>
