@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -48,5 +49,15 @@ class Campaign extends Model
     public function getImageAttribute($image)
     {
         return asset('storage/campaigns/' . $image);
+    }
+
+    public function remainingDays()
+    {
+        if ($this->max_date) {
+            $remaining_days = Carbon::now()->diffInDays(Carbon::parse($this->max_date));
+        } else {
+            $remaining_days = 0;
+        }
+        return $remaining_days;
     }
 }

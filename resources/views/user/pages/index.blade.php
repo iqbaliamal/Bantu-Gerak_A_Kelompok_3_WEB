@@ -50,7 +50,7 @@
                             </div>
                             <p class="card-text deadline"><b>{{ moneyFormat($campaign->total) }}</b> terkumpul dari <b>{{ moneyFormat($campaign->target_donation) }}</b> </p>
                             <div class="deadline">
-                                <p><b>{{ countDay($campaign->max_date) }}</b> hari lagi</p>
+                                <p><b>{{ \Carbon\Carbon::parse( $campaign->max_date )->diffInDays( Carbon\Carbon::now()) }}</b> hari lagi</p>
                             </div>
                         </div>
                     </div>
@@ -90,13 +90,15 @@
             </div>
 
             <div class="row">
+                @foreach ($programs as $program)
                 <div class="col-lg-4">
                     <div class="box wow fadeInLeft">
                         <div class="icon"><i class="fa fa-bar-chart"></i></div>
-                        <h4 class="title"><a href="">Jumat Berkah</a></h4>
-                        <p class="description">Berbagi makanan setiap hari jumat</p>
+                        <h4 class="title"><a href="">{{$program->title}}</a></h4>
+                        <p class="description">{{$program->description}}</p>
                     </div>
                 </div>
+                @endforeach
             </div>
         </div>
     </section>
