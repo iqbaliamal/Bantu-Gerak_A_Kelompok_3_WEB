@@ -27,15 +27,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [LandingpageControler::class, 'index'])->name('user.landingpage.index');
 
 Auth::routes();
-/**
- * route for admin
- */
 Route::get('logout', [LoginController::class, 'logout'])->name('logout');
-//group route with prefix "admin"
-Route::prefix('admin')->group(function () {
+// Route::get('login', [LoginController::class, 'login'])->name('login');
 
-    //group route with middleware "auth"
-    Route::group(['middleware' => 'auth'], function () {
+//group route with prefix "admin"
+Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
+
+    //group route with middleware "admin"
+    Route::group(['middleware' => 'admin'], function () {
 
         //route dashboard
         Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard.index');

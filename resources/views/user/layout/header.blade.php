@@ -76,7 +76,7 @@
               <li><a href="#">Dashboard</a></li>
               <li><a href="#">Login</a></li>
               <hr>
-              <li><a href="#">Logout</a></li>
+              <li><a href="{{route('logout')}}">Logout</a></li>
             </ul>
           </li>
         </ul>
