@@ -22,6 +22,10 @@
 
   <!-- Vendor JS Files -->
   <script src="{{asset('user/vendor/jquery/jquery.min.js')}}"></script>
+  <script src="{{asset('backend/modules/fontawesome/js/all.min.js')}}"></script>
+  <script src="{{asset('backend/modules/fontawesome/js/fontawesome.js')}}"></script>
+  <script src="{{asset('backend/modules/fontawesome/js/brands.js')}}"></script>
+  <script src="{{asset('backend/modules/fontawesome/js/solid.js')}}"></script>
   <script src="{{asset('user/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
   <script src="{{asset('user/vendor/jquery.easing/jquery.easing.min.js')}}"></script>
   <script src="{{asset('user/vendor/wow/wow.min.js')}}"></script>
@@ -31,7 +35,7 @@
   <script src="{{asset('user/vendor/superfish/superfish.min.js')}}"></script>
   <script src="{{asset('user/vendor/hoverIntent/hoverIntent.js')}}"></script>
   <script src="{{asset('user/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 
 

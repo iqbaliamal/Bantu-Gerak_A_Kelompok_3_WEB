@@ -32,7 +32,7 @@
                     aria-valuenow="{{ percentage($danaSementara, $data->target_donation) }}" aria-valuemin="0"
                     aria-valuemax="100"></div>
             </div>
-            <p class="card-text deadline"><b>{{ moneyFormat($data->total) }}</b> terkumpul dari
+            <p class="card-text deadline"><b>{{ moneyFormat($danaSementara) }}</b> terkumpul dari
                 <b>{{ moneyFormat($data->target_donation) }}</b> </p>
             <div class="row justify-content-between">
                 <div class="col-auto">

@@ -12,6 +12,7 @@ use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\User\DonasiUserController;
 use App\Http\Controllers\User\LandingpageControler;
 use GuzzleHttp\Middleware;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -114,6 +115,3 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
         // Route::patch('/category/{category}', [CategoryController::class, 'update'])->name('admin.category.update');
     });
 });
-
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

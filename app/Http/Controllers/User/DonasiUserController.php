@@ -41,58 +41,56 @@ class DonasiUserController extends Controller
      */
     public function store(Request $request)
     {
-        DB::transaction(function () use ($request) {
-            /**
-             * algorithm create no invoice
-             */
-            $length = 10;
-            $random = '';
-            for ($i = 0; $i < $length; $i++) {
-                $random .= rand(0, 1) ? rand(0, 9) : chr(rand(ord('a'), ord('z')));
+        /**
+         * algorithm create no invoice
+         */
+        $length = 10;
+        $random = '';
+        for ($i = 0; $i < $length; $i++) {
+            $random .= rand(0, 1) ? rand(0, 9) : chr(rand(ord('a'), ord('z')));
+        }
+        $no_invoice = 'TRX-' . Str::upper($random);
+        $campaign = Campaign::where('slug', $request->campaignSlug)->first();
+        $amount = $request->amount;
+        $user = Auth::user()->id;
+
+        //check minimal donasi
+        if ($amount < 10000) {
+            return redirect()->back()->with(['error', 'Donasi minimal Rp. 10.000']);
+        } else {
+            $donasi = Donation::create([
+                'invoice'       => $no_invoice,
+                'campaign_id'   => $campaign->id,
+                'user_id'       => Auth::user()->id,
+                'amount'        => $request->amount,
+                'pray'          => $request->pray,
+                'status'        => 'pending',
+            ]);
+
+            if ($donasi) {
+                return redirect()->route('admin.campaign.index');
             }
-            $no_invoice = 'TRX-' . Str::upper($random);
-            $campaign = Campaign::where('slug', $request->campaignSlug)->first();
-            $amount = $request->amount;
-            $user = Auth::user()->id;
 
-            //check minimal donasi
-            if ($amount < 10000) {
-                return redirect()->back();
-            } else {
-                $donasi = Donation::create([
-                    'invoice'       => $no_invoice,
-                    'campaign_id'   => $campaign->id,
-                    'user_id'       => $user,
-                    'amount'        => $request->amount,
-                    'pray'          => $request->pray,
-                    'status'        => 'pending',
-                ]);
+            // Buat transaksi ke midtrans kemudian save snap tokennya.
+            // $payload = [
+            //     'transaction_details' => [
+            //         'order_id'      => $donasi->invoice,
+            //         'gross_amount'  => $donasi->amount,
+            //     ],
+            //     'customer_details' => [
+            //         'first_name'       => Auth::user()->name,
+            //         'email'            => Auth::user()->email,
+            //     ]
+            // ];
 
-                if ($donasi) {
-                    return view('user.pages.index');
-                }
+            // //create snap token
+            // $snapToken = Snap::getSnapToken($payload);
+            // $donasi->snap_token = $snapToken;
+            // $donasi->save();
 
-                // Buat transaksi ke midtrans kemudian save snap tokennya.
-                // $payload = [
-                //     'transaction_details' => [
-                //         'order_id'      => $donasi->invoice,
-                //         'gross_amount'  => $donasi->amount,
-                //     ],
-                //     'customer_details' => [
-                //         'first_name'       => Auth::user()->name,
-                //         'email'            => Auth::user()->email,
-                //     ]
-                // ];
+            // $this->response['snap_token'] = $snapToken;
 
-                // //create snap token
-                // $snapToken = Snap::getSnapToken($payload);
-                // $donasi->snap_token = $snapToken;
-                // $donasi->save();
-
-                // $this->response['snap_token'] = $snapToken;
-
-            }
-        });
+        }
 
 
         // return response()->json([

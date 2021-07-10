@@ -48,7 +48,7 @@
                                         @forelse($donations as $donation)
                                         <tr>
                                             <td>{{$loop->iteration}}</td>
-                                            <td>{{$donation->donatur->name}}</td>
+                                            <td>{{$donation->user->name}}</td>
                                             <td>{{$donation->campaign->title}}</td>
                                             <td>{{$donation->created_at}}</td>
                                             <td>{{moneyFormat($donation->amount)}}</td>

@@ -18,7 +18,7 @@ class Donation extends Model
     protected $fillable = [
         'invoice',
         'campaign_id',
-        'donatur_id',
+        'user_id',
         'amount',
         'pray',
         'status',

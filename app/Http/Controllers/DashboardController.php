@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Campaign;
 use App\Models\Donation;
 use App\Models\Donatur;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -13,7 +14,7 @@ class DashboardController extends Controller
     {
 
         //donatur
-        $donaturs = Donatur::count();
+        $donaturs = User::where('role', 'user')->count();
 
         //campaign
         $campaigns = Campaign::count();

@@ -14,15 +14,15 @@ class LandingpageControler extends Controller
     {
         $campaigns = Campaign::all();
         $programs = Program::all();
+        $danaSementara = Donation::where('status', 'success')->sum('amount');
 
-
-        return view('user.pages.index', compact('campaigns', 'programs'));
+        return view('user.pages.index', compact('campaigns', 'programs', 'danaSementara'));
     }
 
     public function getCampaign($slug)
     {
         $data = Campaign::where('slug', $slug)->firstOrFail();
-        $danaSementara = Donation::where('status', 'success')->sum('amount');
+        $danaSementara = Donation::where('campaign_id', $data->id)->where('status', 'success')->sum('amount');
 
         return view('user.pages.detailCampaign', compact('data', 'danaSementara'));
     }

@@ -21,10 +21,15 @@
     <!-- Vendor CSS Files -->
     <link href="{{asset('user/vendor/aos/aos.css')}}" rel="stylesheet">
     <link href="{{asset('backend/modules/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('backend/modules/fontawesome/css/all.css')}}" rel="stylesheet">
+    <link href="{{asset('backend/modules/fontawesome/css/brands.css')}}" rel="stylesheet">
+    <link href="{{asset('backend/modules/fontawesome/css/fontawesome.css')}}" rel="stylesheet">
+    <link href="{{asset('backend/modules/fontawesome/css/solid.css')}}" rel="stylesheet">
     <link href="{{asset('user/vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
     <link href="{{asset('user/vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
     <link href="{{asset('user/vendor/glightbox/css/glightbox.min.css')}}" rel="stylesheet">
     <link href="{{asset('user/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
+
 
 
     <!-- Template Main CSS File -->
