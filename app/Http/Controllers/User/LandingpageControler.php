@@ -29,17 +29,5 @@ class LandingpageControler extends Controller
 
     public function storeDonation(Request $request)
     {
-        $this->validate($request, [
-            'amount'    => 'required|string',
-            'pray'      => 'required|string',
-        ]);
-
-        $amount = $request->amount;
-        $pray = $request->pray;
-
-        //check minimal donasi
-        if ($amount < 10000) {
-            return back()->with(['error' => 'Donasi Minimal Rp. 10.000!']);
-        }
     }
 }

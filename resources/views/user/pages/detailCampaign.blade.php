@@ -85,20 +85,34 @@
             </div>
             <div class="modal-body">
                 <div class="col-lg-12">
-                    <form action="{{route('store.donation')}}" method="POST">
+                    <form action="{{route('user.donasi.store')}}" method="post">
+                        {{csrf_field()}}
                         <div class="form-group">
+                            <input type="text" value="{{$data->slug}}" name="campaignSlug" hidden>
                             <label for="amount"><strong>Rp.</strong></label>
-                            <input type="number" class="form-control" id="amount" name="amount"
-                                placeholder="0">
+                            <input type="number" class="form-control @error('amount') is-invalid @enderror" id="amount" name="amount"
+                                placeholder="0" value="{{ old('amount') }}">
                             <small class="form-text text-muted">Silahkan masukkan jumlah yang akan anda
                                 donasikan.</small>
                         </div>
+
+                        @error('amount')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+
                         <div class="form-group">
                             <label for="pray"><strong>Do'a</strong></label>
-                            <textarea name="pray" id="pray" class="form-control" cols="30" rows="5"></textarea>
+                            <textarea name="pray" id="pray" class="form-control @error('pray') is-invalid @enderror" cols="30" rows="5">{{ old('pray') }}</textarea>
                         </div>
+                        @error('pray')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
                         <div class="col-lg-12 text-center">
-                            <button type="submit" class="btn btn-primary">Lanjut Pembayaran</button>
+                            <input type="submit" class="btn btn-primary">Lanjut Pembayaran</input>
                         </div>
                     </form>
                 </div>

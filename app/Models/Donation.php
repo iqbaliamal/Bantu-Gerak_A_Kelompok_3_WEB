@@ -30,9 +30,9 @@ class Donation extends Model
         return $this->belongsTo(Campaign::class);
     }
 
-    public function donatur()
+    public function user()
     {
-        return $this->belongsTo(Donatur::class);
+        return $this->belongsTo(User::class);
     }
 
     /**

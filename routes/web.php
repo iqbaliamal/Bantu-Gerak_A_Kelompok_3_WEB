@@ -9,6 +9,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DonaturController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\User\DonasiUserController;
 use App\Http\Controllers\User\LandingpageControler;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Auth;
@@ -33,7 +34,7 @@ Route::get('/detailCampaign', function () {
 
 Route::get('/campaign/{slug}', [LandingpageControler::class, 'getCampaign'])->name('detail');
 
-Route::post('/donation', [LandingpageControler::class, 'storeDonation'])->name('store.donation');
+Route::resource('/donasi', DonasiUserController::class, ['as' => 'user']);
 
 Route::group(['middleware' => 'user'], function () {
 });

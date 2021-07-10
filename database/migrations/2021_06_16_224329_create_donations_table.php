@@ -17,7 +17,7 @@ class CreateDonationsTable extends Migration
             $table->id();
             $table->string('invoice');
             $table->unsignedInteger('campaign_id');
-            $table->unsignedInteger('donatur_id');
+            $table->unsignedInteger('user_id');
             $table->bigInteger('amount');
             $table->text('pray')->nullable();
             $table->string('snap_token')->nullable();
