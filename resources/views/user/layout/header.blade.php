@@ -101,7 +101,7 @@
                         <ul>
                             <li><a href="{{route('login')}}">Login</a></li>
                             <hr>
-                            <li><a href="{{route('logout')}}">Logout</a></li>
+                            <li><a href="{{route('register')}}">Register</a></li>
                         </ul>
                     </li>
                     @endguest
