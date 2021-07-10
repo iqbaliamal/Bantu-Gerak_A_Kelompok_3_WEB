@@ -21,26 +21,41 @@
           class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="{{asset('user/vendor/aos/aos.js')}}"></script>
+  <script src="{{asset('user/vendor/jquery/jquery.min.js')}}"></script>
   <script src="{{asset('user/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-  <script src="{{asset('user/vendor/glightbox/js/glightbox.min.js')}}"></script>
-  <script src="{{asset('user/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
-  <script src="{{asset('user/vendor/php-email-form/validate.js')}}"></script>
-  <script src="{{asset('user/vendor/swiper/swiper-bundle.min.js')}}"></script>
   <script src="{{asset('user/vendor/jquery.easing/jquery.easing.min.js')}}"></script>
   <script src="{{asset('user/vendor/wow/wow.min.js')}}"></script>
   <script src="{{asset('user/vendor/venobox/venobox.min.js')}}"></script>
   <script src="{{asset('user/vendor/owl.carousel/owl.carousel.min.js')}}"></script>
   <script src="{{asset('user/vendor/jquery-sticky/jquery.sticky.js')}}"></script>
   <script src="{{asset('user/vendor/superfish/superfish.min.js')}}"></script>
-  <script src="{{asset('user/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
-  <script src="{{asset('backend/modules/jquery.min.js')}}"></script>
-  <script src="{{asset('backend/modules/popper.js')}}"></script>
-  <script src="{{asset('backend/modules/bootstrap/js/bootstrap.min.js')}}"></script>
+  <script src="{{asset('user/vendor/hoverIntent/hoverIntent.js')}}"></script>
+  <script src="{{asset('user/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
 
 
   <!-- Template Main JS File -->
   <script src="{{asset('user/js/main.js')}}"></script>
+
+  <script>
+    @if(session()->has('success'))
+    Toast.fire({
+    icon: 'success',
+    title: '{{ session('success') }}'
+    timer: 3000
+    })
+
+    @elseif(session()->has('error'))
+    Toast.fire({
+    icon: 'error',
+    title: '{{ session('error') }}'
+    timer: 3000
+    })
+
+    @endif
+
+  </script>
 
   </body>
 

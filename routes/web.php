@@ -10,6 +10,7 @@ use App\Http\Controllers\DonaturController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\User\LandingpageControler;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -25,6 +26,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [LandingpageControler::class, 'index'])->name('user.landingpage.index');
+
+Route::get('/detailCampaign', function () {
+    return view('user.pages.detailCampaign');
+});
+
+Route::get('/campaign/{slug}', [LandingpageControler::class, 'getCampaign'])->name('detail');
+
+Route::post('/donation', [LandingpageControler::class, 'storeDonation'])->name('store.donation');
+
+Route::group(['middleware' => 'user'], function () {
+});
 
 Auth::routes();
 Route::get('logout', [LoginController::class, 'logout'])->name('logout');

@@ -65,7 +65,7 @@
             <div id="logo">
                 {{-- <h1><a href="index.html">Reve<span>al</span></a></h1> --}}
                 <!-- Uncomment below if you prefer to use an image logo -->
-                <a href="index.html"><img src="{{asset('user/img/logo.png')}}" class="navbar-logo" alt=""></a>
+                <a href="/"><img src="{{asset('user/img/logo.png')}}" class="navbar-logo" alt="Logo Bantu Gerak"></a>
             </div>
 
             <nav id="navbar" class="navbar">

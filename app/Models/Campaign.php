@@ -50,14 +50,4 @@ class Campaign extends Model
     {
         return asset('storage/campaigns/' . $image);
     }
-
-    public function remainingDays()
-    {
-        if ($this->max_date) {
-            $remaining_days = Carbon::now()->diffInDays(Carbon::parse($this->max_date));
-        } else {
-            $remaining_days = 0;
-        }
-        return $remaining_days;
-    }
 }

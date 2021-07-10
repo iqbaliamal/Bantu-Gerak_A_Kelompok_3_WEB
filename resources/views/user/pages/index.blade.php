@@ -33,12 +33,12 @@
 
             <div class="row">
                 @foreach ($campaigns as $campaign)
-                @if (Carbon\Carbon::parse( $campaign->max_date )->diffInDays( Carbon\Carbon::now())  >= 0)
+                @if (Carbon\Carbon::parse( $campaign->max_date )->diffInDays( Carbon\Carbon::now()) >= 0)
                 <div class="col-lg-3">
                     <div class="card shadow box-campaign">
                         <img class="img-campaign" src="{{($campaign->image)}}">
                         <div class="title-campaign">
-                            <a href="#" data-toggle="modal" data-target="#campaignModalCenter">
+                            <a href="/campaign/{{$campaign->slug}}">
                                 <h3>{{($campaign->title)}}</h3>
                             </a>
                         </div>
@@ -47,14 +47,18 @@
                                 <p>{{($campaign->user->name)}}</p>
                             </div>
                             <div class="progress">
-                                <div class="progress-bar"></div>
+                                <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
-                            <p class="card-text deadline"><b>{{ moneyFormat($campaign->total) }}</b> terkumpul dari <b>{{ moneyFormat($campaign->target_donation) }}</b> </p>
+                            <p class="card-text deadline"><b>{{ moneyFormat($campaign->total) }}</b> terkumpul dari
+                                <b>{{ moneyFormat($campaign->target_donation) }}</b> </p>
                             <div class="deadline">
-                                @if (\Carbon\Carbon::parse( $campaign->max_date )->diffInDays( Carbon\Carbon::now()) > 0)
-                                <p><b>{{ \Carbon\Carbon::parse( $campaign->max_date )->diffInDays( Carbon\Carbon::now()) }}</b> Hari lagi</p>
+                                @if (\Carbon\Carbon::parse( $campaign->max_date )->diffInDays( Carbon\Carbon::now()) >
+                                0)
+                                <p><b>{{ \Carbon\Carbon::parse( $campaign->max_date )->diffInDays( Carbon\Carbon::now()) }}</b>
+                                    Hari lagi</p>
                                 @else
-                                <p><b>{{ \Carbon\Carbon::parse( $campaign->max_date )->diffInHours( Carbon\Carbon::now()) }}</b> Jam Lagi</p>
+                                <p><b>{{ \Carbon\Carbon::parse( $campaign->max_date )->diffInHours( Carbon\Carbon::now()) }}</b>
+                                    Jam Lagi</p>
                                 @endif
                             </div>
                         </div>
@@ -139,29 +143,4 @@
         </div>
     </section>
 </main>
-{{-- modal --}}
-<!-- Modal -->
-<div class="modal fade" id="campaignModalCenter" tabindex="-1" role="dialog" aria-labelledby="campaignModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          {{-- <h5 class="modal-title" id="campaignModalLongTitle">Modal title</h5> --}}
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="col-lg-12">
-              
-          </div>
-        </div>
-        <div class="modal-footer">
-            <div class="col-lg-12 text-center">
-          {{-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> --}}
-          <button type="button" class="btn btn-primary">Donasi Sekarang !</button>
-            </div>
-        </div>
-      </div>
-    </div>
-  </div>
 @endsection
