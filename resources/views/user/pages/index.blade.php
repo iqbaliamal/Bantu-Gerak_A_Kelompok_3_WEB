@@ -35,10 +35,10 @@
                 @foreach ($campaigns as $campaign)
                 @if (Carbon\Carbon::parse( $campaign->max_date )->diffInDays( Carbon\Carbon::now()) >= 0)
                 <div class="col-lg-3">
-                    <div class="card shadow box-campaign">
+                    <div class="card shadow border-0 box-campaign">
                         <img class="img-campaign" src="{{($campaign->image)}}">
                         <div class="title-campaign">
-                            <a href="/campaign/{{$campaign->slug}}">
+                            <a href="/list-campaign/{{$campaign->slug}}">
                                 <h3>{{($campaign->title)}}</h3>
                             </a>
                         </div>
@@ -46,11 +46,11 @@
                             <div class="penggalang">
                                 <p>{{($campaign->user->name)}}</p>
                             </div>
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <p class="card-text deadline"><b>{{ moneyFormat($danaSementara) }}</b> terkumpul dari
-                                <b>{{ moneyFormat($campaign->target_donation) }}</b> </p>
+                            <p class="card-text" style="margin: 0;"><strong>Donasi terkumpul</strong></p>
+
+                            <p class="card-text deadline"><b>@foreach ($campaign->sumDonation as $total){{ moneyFormat($total->total) }} @endforeach</b> dari <b>{{ moneyFormat($campaign->target_donation) }}</b>
+                            </p>
+
                             <div class="deadline">
                                 @if (\Carbon\Carbon::parse( $campaign->max_date )->diffInDays( Carbon\Carbon::now()) >
                                 0)
@@ -69,6 +69,9 @@
                 @endif
 
                 @endforeach
+            </div>
+            <div class="col-md-12 d-flex justify-content-center bot-section3">
+                <a href="{{route('user.campaign.index')}}" class="btn btn-load">Load More</a>
             </div>
         </div>
     </section><!-- End Campaign Section -->
@@ -166,20 +169,37 @@
             </div>
 
             <div class="row">
-                <div class="col-lg-3">
-                    <div class="card shadow-sm">
-                        <div class="container-img-publikasi">
-                            <img class="card-img-top" src="assets/img/testimonial-1.jpg" alt="Card image cap">
-                            <div class="title-publikasi">kajshd</div>
-                        </div>
+                @foreach ($publications as $publication)
+                <div class="col-md-4 col-sm-10 my-3">
+                    <div class="card border-0 shadow">
+                        <a href="blog/{{ $publication->slug }}"><img src=" {{asset($publication->image)}}" class="card-img-top"
+                                alt="..." style="width: 100%;height: 200px; object-fit: cover; object-position: center"></a>
                         <div class="card-body">
-                            aksjhd
+                            <div class="card-head d-flex justify-content-between">
+                                <a class="news-tag" href=""></a>
+                                <p class="news-date">
+                                    @if (Carbon\Carbon::now()->diffInDays($publication->created_at) > 14)
+                                    {{ Carbon\Carbon::parse($publication->created_at)->format('d-m-Y') }}
+                                    @else
+                                    {{ Carbon\Carbon::parse($publication->created_at)->diffForHumans() }}
+                                    @endif
+                                </p>
+                            </div>
+                            <h5 class="card-title"><a href="blog/{{ $publication->slug }}">{{ $publication->title}}</a></h5>
+
+                            <p class="card-text">{{ Str::substr(strip_tags($publication->content), 0, 100) }}....</p>
+                            <hr>
+                            <div class="d-flex justify-content-between">
+                                <p class="publisher"><i class="fas fa-user fa-sm"></i>&nbsp<span>{{ $publication->user->name}}</span></p>
+                                <a href="blog/{{ $publication->slug }}" class="card-foot">Read More</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3">laksdjalksjd</div>
-                <div class="col-lg-3">laksdjalksjd</div>
-                <div class="col-lg-3">laksdjalksjd</div>
+                @endforeach
+            </div>
+            <div class="col-md-12 d-flex justify-content-center bot-section3">
+                <a href="{{route('user.blog.index')}}" class="btn btn-load">Load More</a>
             </div>
         </div>
     </section>

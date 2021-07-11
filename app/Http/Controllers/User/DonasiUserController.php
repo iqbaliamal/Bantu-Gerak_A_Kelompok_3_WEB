@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Campaign;
+use Midtrans\Snap;
 use Illuminate\Support\Str;
 use App\Models\Donation;
 use Illuminate\Http\Request;
@@ -13,6 +14,14 @@ use Illuminate\Support\Facades\Redirect;
 
 class DonasiUserController extends Controller
 {
+    public function __construct()
+    {
+        // Set midtrans configuration
+        \Midtrans\Config::$serverKey    = config('services.midtrans.serverKey');
+        \Midtrans\Config::$isProduction = config('services.midtrans.isProduction');
+        \Midtrans\Config::$isSanitized  = config('services.midtrans.isSanitized');
+        \Midtrans\Config::$is3ds        = config('services.midtrans.is3ds');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -56,41 +65,35 @@ class DonasiUserController extends Controller
 
         //check minimal donasi
         if ($amount < 10000) {
-            return redirect()->back()->with(['error', 'Donasi minimal Rp. 10.000']);
-        } else {
-            $donasi = Donation::create([
-                'invoice'       => $no_invoice,
-                'campaign_id'   => $campaign->id,
-                'user_id'       => Auth::user()->id,
-                'amount'        => $request->amount,
-                'pray'          => $request->pray,
-                'status'        => 'pending',
-            ]);
-
-            if ($donasi) {
-                return redirect()->route('admin.campaign.index');
-            }
-
-            // Buat transaksi ke midtrans kemudian save snap tokennya.
-            // $payload = [
-            //     'transaction_details' => [
-            //         'order_id'      => $donasi->invoice,
-            //         'gross_amount'  => $donasi->amount,
-            //     ],
-            //     'customer_details' => [
-            //         'first_name'       => Auth::user()->name,
-            //         'email'            => Auth::user()->email,
-            //     ]
-            // ];
-
-            // //create snap token
-            // $snapToken = Snap::getSnapToken($payload);
-            // $donasi->snap_token = $snapToken;
-            // $donasi->save();
-
-            // $this->response['snap_token'] = $snapToken;
-
+            return redirect()->back()->with(['error' => 'Donasi minimal Rp. 10.000']);
         }
+        $donasi = Donation::create([
+            'invoice'       => $no_invoice,
+            'campaign_id'   => $campaign->id,
+            'user_id'       => $user,
+            'amount'        => $request->amount,
+            'pray'          => $request->pray,
+            'status'        => 'pending',
+        ]);
+
+        // Buat transaksi ke midtrans kemudian save snap tokennya.
+        $payload = [
+            'transaction_details' => [
+                'order_id'      => $donasi->invoice,
+                'gross_amount'  => $donasi->amount,
+            ],
+            'customer_details' => [
+                'first_name'       => Auth::user()->name,
+                'email'            => Auth::user()->email,
+            ]
+        ];
+
+        //create snap token
+        $snapToken = Snap::getSnapToken($payload);
+        $donasi->snap_token = $snapToken;
+        $donasi->save();
+
+        // $this->response['snap_token'] = $snapToken;
 
 
         // return response()->json([
@@ -98,6 +101,13 @@ class DonasiUserController extends Controller
         //     'message' => 'Donasi Berhasil Dibuat!',
         //     $this->response
         // ]);
+
+        if ($donasi) {
+            # code...
+            return redirect()->back()->with(['success' => 'Donasi Berhasil Dibuat, Silahkan lanjutkan pembayaran!']);
+        } else {
+            return redirect()->back()->with(['error' => 'Donasi Gagal Dibuat']);
+        }
     }
 
     /**

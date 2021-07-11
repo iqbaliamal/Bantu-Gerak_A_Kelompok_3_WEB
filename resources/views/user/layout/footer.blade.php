@@ -44,20 +44,24 @@
 
   <script>
     @if(session()->has('success'))
-    Toast.fire({
+
+Swal.fire({
     icon: 'success',
-    title: '{{ session('success') }}'
+    text: '{{ session('success') }}',
+    showConfirmButton: false,
     timer: 3000
-    })
+})
 
-    @elseif(session()->has('error'))
-    Toast.fire({
+@elseif(session()->has('error'))
+
+Swal.fire({
     icon: 'error',
-    title: '{{ session('error') }}'
+    title: '{{ session('error') }}',
+    showConfirmButton: false,
     timer: 3000
-    })
+})
 
-    @endif
+@endif
 
   </script>
 

@@ -10,6 +10,8 @@ use App\Http\Controllers\DonaturController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\PublicationController;
+use App\Http\Controllers\User\BlogController;
+use App\Http\Controllers\User\CampaignController as UserCampaignController;
 use App\Http\Controllers\User\DonasiUserController;
 use App\Http\Controllers\User\LandingpageControler;
 use App\Models\Publication;
@@ -31,11 +33,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LandingpageControler::class, 'index'])->name('user.landingpage.index');
 
-Route::get('/detailCampaign', function () {
-    return view('user.pages.detailCampaign');
-});
+Route::get('/list-campaign', [UserCampaignController::class, 'index'])->name('user.campaign.index');
+Route::get('/list-campaign/{slug}', [LandingpageControler::class, 'getCampaign'])->name('detailCampaign');
 
-Route::get('/campaign/{slug}', [LandingpageControler::class, 'getCampaign'])->name('detail');
+Route::get('/blog', [BlogController::class, 'index'])->name('user.blog.index');
+Route::get('/blog/{slug}', [BlogController::class, 'getBlog'])->name('detailBlog');
 
 Route::resource('/donasi', DonasiUserController::class, ['as' => 'user']);
 

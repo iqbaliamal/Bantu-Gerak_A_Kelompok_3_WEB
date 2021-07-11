@@ -53,6 +53,11 @@ class User extends Authenticatable
         return $this->hasMany(Donation::class);
     }
 
+    public function publications()
+    {
+        return $this->hasMany(Publication::class);
+    }
+
     /**
      * getAvatarAttribute
      *

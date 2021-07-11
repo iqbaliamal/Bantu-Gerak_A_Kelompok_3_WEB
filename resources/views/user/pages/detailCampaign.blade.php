@@ -10,6 +10,7 @@
                 <h2>Detail Campaign</h2>
                 <ol>
                     <li><a href="/">Beranda</a></li>
+                    <li><a href="/campaign">List Campaign</a></li>
                     <li>{{$data->slug}}</li>
                 </ol>
             </div>
@@ -18,7 +19,7 @@
     </section><!-- End Breadcrumbs Section -->
     <div class="container detail-page">
         <div class="img-detailpage img-detailpage-top">
-            <img src="{{asset('user/img/bg-hero.png')}}" alt="" class="img-fluid cover fixed-height-400">
+            <img src="{{$data->image}}" alt="" class="img-fluid cover fixed-height-400">
         </div>
         <h1 class="title-detailpage mt-5">{{$data->title}}</h1>
 
@@ -36,7 +37,7 @@
                 <b>{{ moneyFormat($data->target_donation) }}</b> </p>
             <div class="row justify-content-between">
                 <div class="col-auto">
-                    <strong>39</strong> Donasi
+                    
                 </div>
                 <div class="col-auto">
                     @if (\Carbon\Carbon::parse( $data->max_date )->diffInDays( Carbon\Carbon::now()) > 0)
@@ -112,7 +113,7 @@
                     </span>
                     @enderror
                         <div class="col-lg-12 text-center">
-                            <input type="submit" class="btn btn-primary">Lanjut Pembayaran</input>
+                            <button type="submit" class="btn btn-primary">Lanjut Pembayaran</button>
                         </div>
                     </form>
                 </div>

@@ -6,17 +6,22 @@ use App\Http\Controllers\Controller;
 use App\Models\Campaign;
 use App\Models\Donation;
 use App\Models\Program;
+use App\Models\Publication;
 use Illuminate\Http\Request;
 
 class LandingpageControler extends Controller
 {
     public function index()
     {
-        $campaigns = Campaign::all();
+        // $campaigns = Campaign::orderBy('id', 'desc')->limit(8)->get();
+        $campaigns = Campaign::with('user')->with('sumDonation')->limit(8)->get();
         $programs = Program::all();
-        $danaSementara = Donation::where('status', 'success')->sum('amount');
+        $publications = Publication::orderBy('id', 'desc')->limit(6)->get();
 
-        return view('user.pages.index', compact('campaigns', 'programs', 'danaSementara'));
+
+        $danaSementara = Donation::selectRaw('donations.campaign_id,SUM(donations.amount) as total')->where('donations.status', 'success')->groupBy('donations.campaign_id')->first();
+
+        return view('user.pages.index', compact('campaigns', 'programs', 'danaSementara', 'publications'));
     }
 
     public function getCampaign($slug)
