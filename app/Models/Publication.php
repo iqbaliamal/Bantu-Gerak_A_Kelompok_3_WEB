@@ -21,4 +21,15 @@ class Publication extends Model
         'image',
         'content',
     ];
+
+    /**
+     * getImageAttribute
+     *
+     * @param  mixed $image
+     * @return void
+     */
+    public function getImageAttribute($image)
+    {
+        return asset('storage/publications/' . $image);
+    }
 }

@@ -9,8 +9,10 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DonaturController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\PublicationController;
 use App\Http\Controllers\User\DonasiUserController;
 use App\Http\Controllers\User\LandingpageControler;
+use App\Models\Publication;
 use GuzzleHttp\Middleware;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -60,6 +62,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
         Route::get('/donation', [DonationController::class, 'index'])->name('admin.donation.index');
         Route::get('/donation/filter', [DonationController::class, 'filter'])->name('admin.donation.filter');
         Route::resource('/program', ProgramController::class, ['as' => 'admin']);
+        Route::resource('/publication', PublicationController::class, ['as' => 'admin']);
         Route::get('/profile', [ProfileController::class, 'index'])->name('admin.profile.index');
         // Route::get('kategori', [KategoriController::class, 'index'])->name('list.kategori');
         // Route::post('kategori/store', [KategoriController::class, 'store'])->name('add.kategori');

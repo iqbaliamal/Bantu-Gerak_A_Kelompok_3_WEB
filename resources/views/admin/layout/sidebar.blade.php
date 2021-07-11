@@ -1,7 +1,7 @@
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
       <div class="sidebar-brand">
-        <a href="index.html">Stisla</a>
+        <a href="index.html">BANTU GERAK</a>
       </div>
       <div class="sidebar-brand sidebar-brand-sm">
         <a href="index.html">St</a>
@@ -34,6 +34,11 @@
         </li>
         <li class="{{ request()->is('admin/faq') ? 'active' : '' }}">
           <a href="#" class="nav-link"><i class="fas fa-question-circle"></i><span>FAQ</span></a>
+        </li>
+
+        <li class="menu-header">Blog</li>
+        <li class="{{ request()->is('admin/publication') ? 'active' : '' }}">
+          <a href="{{route('admin.publication.index')}}" class="nav-link"><i class="fas fa-newspaper"></i><span>Publication</span></a>
         </li>
 
         <li class="menu-header">Profil</li>
