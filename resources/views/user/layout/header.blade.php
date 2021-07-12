@@ -36,6 +36,9 @@
     <link href="{{asset('user/css/style.css')}}" rel="stylesheet">
     <link href="{{asset('user/css/app.css')}}" rel="stylesheet">
 
+    {{-- midtrans js --}}
+    @stack('midtrans')
+
     <!-- =======================================================
   * Template Name: Reveal - v4.3.0
   * Template URL: https://bootstrapmade.com/reveal-bootstrap-corporate-template/
@@ -84,7 +87,7 @@
                         <ul>
                             <li>
                             @if(auth()->user()->role=='user')
-                                <a href="#">User Dashboard</a>
+                                <a href="{{route('user.donasi.index')}}">Riwayat Donasi</a>
                             @else
                                 <a href="{{route('admin.dashboard.index')}}">Dashboard</a>
                             @endif

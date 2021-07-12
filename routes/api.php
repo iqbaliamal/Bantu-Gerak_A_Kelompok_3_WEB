@@ -20,18 +20,18 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-/**
- * Api Register
- */
-Route::post('/register', [RegisterController::class, 'register']);
+// /**
+//  * Api Register
+//  */
+// Route::post('/register', [RegisterController::class, 'register']);
 
-/**
- * Api Login
- */
-Route::post('/login', [LoginController::class, 'login']);
+// /**
+//  * Api Login
+//  */
+// Route::post('/login', [LoginController::class, 'login']);
 
 /**
  * Api Campaign
  */
-Route::get('/campaign', [CampaignController::class, 'index']);
-Route::get('/campaign/{slug}', [CampaignController::class, 'show']);
+// Route::get('/campaign', [CampaignController::class, 'index']);
+// Route::get('/campaign/{slug}', [CampaignController::class, 'show']);

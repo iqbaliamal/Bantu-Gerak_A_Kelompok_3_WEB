@@ -29,17 +29,15 @@ class DonasiUserController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        // Fungsi riwayat donasi user
+        if (Auth::user()) {
+            # code...
+            $user_id = Auth::user()->id;
+            $riwayatDonasi = Donation::with('campaign')->where('user_id', $user_id)->latest()->get();
+            return view('user.pages.riwayatDonasi', compact('riwayatDonasi'));
+        } else {
+            return view('error-404');
+        }
     }
 
     /**
@@ -104,54 +102,103 @@ class DonasiUserController extends Controller
 
         if ($donasi) {
             # code...
-            return redirect()->back()->with(['success' => 'Donasi Berhasil Dibuat, Silahkan lanjutkan pembayaran!']);
+            return redirect()->route('user.donasi.index')->with(['success' => 'Donasi Berhasil Dibuat, Silahkan lanjutkan pembayaran!']);
         } else {
             return redirect()->back()->with(['error' => 'Donasi Gagal Dibuat']);
         }
     }
 
     /**
-     * Display the specified resource.
+     * notificationHandler
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  mixed $request
+     * @return void
      */
-    public function show($id)
+    public function notificationHandler(Request $request)
     {
-        //
-    }
+        $payload      = $request->getContent();
+        $notification = json_decode($payload);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+        $validSignatureKey = hash("sha512", $notification->order_id . $notification->status_code . $notification->gross_amount . config('services.midtrans.serverKey'));
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+        if ($notification->signature_key != $validSignatureKey) {
+            return response(['message' => 'Invalid signature'], 403);
+        }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $transaction  = $notification->transaction_status;
+        $type         = $notification->payment_type;
+        $orderId      = $notification->order_id;
+        $fraud        = $notification->fraud_status;
+
+        //data donation
+        $data_donation = Donation::where('invoice', $orderId)->first();
+
+        if ($transaction == 'capture') {
+
+            // For credit card transaction, we need to check whether transaction is challenge by FDS or not
+            if ($type == 'credit_card') {
+
+                if ($fraud == 'challenge') {
+
+                    /**
+                     *   update invoice to pending
+                     */
+                    $data_donation->update([
+                        'status' => 'pending'
+                    ]);
+                } else {
+
+                    /**
+                     *   update invoice to success
+                     */
+                    $data_donation->update([
+                        'status' => 'success'
+                    ]);
+                }
+            }
+        } elseif ($transaction == 'settlement') {
+
+            /**
+             *   update invoice to success
+             */
+            $data_donation->update([
+                'status' => 'success'
+            ]);
+        } elseif ($transaction == 'pending') {
+
+
+            /**
+             *   update invoice to pending
+             */
+            $data_donation->update([
+                'status' => 'pending'
+            ]);
+        } elseif ($transaction == 'deny') {
+
+
+            /**
+             *   update invoice to failed
+             */
+            $data_donation->update([
+                'status' => 'failed'
+            ]);
+        } elseif ($transaction == 'expire') {
+
+
+            /**
+             *   update invoice to expired
+             */
+            $data_donation->update([
+                'status' => 'expired'
+            ]);
+        } elseif ($transaction == 'cancel') {
+
+            /**
+             *   update invoice to failed
+             */
+            $data_donation->update([
+                'status' => 'failed'
+            ]);
+        }
     }
 }

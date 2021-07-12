@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Campaign;
 use Illuminate\Http\Request;
 
-class CampaignController extends Controller
+class CampaignUserController extends Controller
 {
     public function index()
     {

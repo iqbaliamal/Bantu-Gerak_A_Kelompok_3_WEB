@@ -11,7 +11,6 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\PublicationController;
 use App\Http\Controllers\User\BlogController;
-use App\Http\Controllers\User\CampaignController as UserCampaignController;
 use App\Http\Controllers\User\DonasiUserController;
 use App\Http\Controllers\User\LandingpageControler;
 use App\Models\Publication;
@@ -33,13 +32,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LandingpageControler::class, 'index'])->name('user.landingpage.index');
 
-Route::get('/list-campaign', [UserCampaignController::class, 'index'])->name('user.campaign.index');
+Route::get('/list-campaign', [App\Http\Controllers\User\CampaignUserController::class, 'index'])->name('user.campaign.index');
 Route::get('/list-campaign/{slug}', [LandingpageControler::class, 'getCampaign'])->name('detailCampaign');
 
 Route::get('/blog', [BlogController::class, 'index'])->name('user.blog.index');
 Route::get('/blog/{slug}', [BlogController::class, 'getBlog'])->name('detailBlog');
 
 Route::resource('/donasi', DonasiUserController::class, ['as' => 'user']);
+Route::post('/donasi/notification', [DonasiUserController::class, 'notificationHandler'])->name('user.donasi.handler');
 
 Route::group(['middleware' => 'user'], function () {
 });
@@ -57,7 +57,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
         //route dashboard
         Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard.index');
 
-        // Category
         Route::resource('/category', CategoryController::class, ['as' => 'admin']);
         Route::resource('/campaign', CampaignController::class, ['as' => 'admin']);
         Route::get('/donatur', [DonaturController::class, 'index'])->name('admin.donatur.index');
@@ -66,57 +65,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
         Route::resource('/program', ProgramController::class, ['as' => 'admin']);
         Route::resource('/publication', PublicationController::class, ['as' => 'admin']);
         Route::get('/profile', [ProfileController::class, 'index'])->name('admin.profile.index');
-        // Route::get('kategori', [KategoriController::class, 'index'])->name('list.kategori');
-        // Route::post('kategori/store', [KategoriController::class, 'store'])->name('add.kategori');
-        // Route::post('kategori/update/{id}', [KategoriController::class, 'update'])->name('update.kategori');
-        // Route::get('kategori/delete/{id}', [KategoriController::class, 'destroy'])->name('delete.kategori');
-
-        // Kategori
-        // Route::get('campaign', [CampaignController::class, 'index'])->name('list.campaign');
-        // Route::get('campaign/create', [CampaignController::class, 'create'])->name('create.campaign');
-        // Route::post('campaign/store', [CampaignController::class, 'store'])->name('add.campaign');
-        // Route::post('campaign/edit/{id}', [CampaignController::class, 'edit'])->name('edit.campaign');
-        // Route::post('campaign/update/{id}', [CampaignController::class, 'update'])->name('update.campaign');
-        // Route::get('campaign/delete/{id}', [CampaignController::class, 'destroy'])->name('delete.campaign');
-
-        // Donatur
-        // Route::get('donatur', [DonaturController::class, 'index'])->name('list.donatur');
-        // Route::post('donatur/store', [DonaturController::class, 'store'])->name('add.donatur');
-        // Route::get('donatur/create', [DonaturController::class, 'create'])->name('create.donatur');
-        // Route::get('donatur/edit/{id}', [DonaturController::class, 'edit'])->name('edit.donatur');
-        // Route::post('donatur/update/{id}', [DonaturController::class, 'update'])->name('update.donatur');
-        // Route::get('donatur/detele', [DonaturController::class, 'destroy'])->name('delete.donatur');
-
-        // Donation
-        // Route::get('donation', [DonationController::class, 'index'])->name('list.donation');
-        // Route::get('donation/create', [DonationController::class, 'create'])->name('create.donation');
-        // Route::post('donation/store', [DonationController::class, 'store'])->name('add.donation');
-        // Route::get('donation/edit/{id}', [DonationController::class, 'edit'])->name('edit.donation');
-        // Route::post('donation/update/{id}', [DonationController::class, 'update'])->name('update.donation');
-        // Route::get('donation/detele', [DonationController::class, 'destroy'])->name('delete.donation');
-
-        // Route::post('user/edit-profile/{id}', [AdminController::class, 'editProfile'])->name('editProfile.user');
-        // Route::post('user/update-profile/{id}', [AdminController::class, 'updateProfile'])->name('updateProfile.user');
-        // Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard.index');
-
-        // Route::get('/donatur', [DonaturController::class, 'index'])->name('admin.donatur.index');
-
-        // Route::post('/donatur', [DonaturController::class, 'store'])->name('admin.donatur.store');
-
-        // Route::get('/donatur/create', [DonaturController::class, 'create'])->name('admin.donatur.create');
-
-        // Route::get('/donatur/{donatur}/edit', [DonaturController::class, 'edit'])->name('admin.donatur.edit');
-
-        // Route::patch('/donatur/{donatur}', [DonaturController::class, 'update'])->name('admin.donatur.update');
-
-        // Route::get('/category', [CategoryController::class, 'index'])->name('admin.category.index');
-
-        // Route::post('/category', [CategoryController::class, 'store'])->name('admin.category.store');
-
-        // Route::get('/category/create', [CategoryController::class, 'create'])->name('admin.category.create');
-
-        // Route::get('/category/{category}/edit', [CategoryController::class, 'edit'])->name('admin.category.edit');
-
-        // Route::patch('/category/{category}', [CategoryController::class, 'update'])->name('admin.category.update');
     });
+});
+
+//404
+Route::fallback(function () {
+    return view('error-404');
 });
