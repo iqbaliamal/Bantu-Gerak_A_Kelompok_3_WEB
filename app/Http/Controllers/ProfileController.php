@@ -29,7 +29,14 @@ class ProfileController extends Controller
             $this->validate($request, [
                 'password' => 'required|required_with:password|confirmed',
                 'password_confirmation' => 'required',
-            ]);
+            ],
+            [
+                'password.required'=>'password wajib diisi',
+                'password.required_with'=>'rahasiakan password anda',
+                'password.confirmed'=>'ulangi password anda',
+                'password_confirmation.required'=>'konfirmasi ulang password wajib diisi',
+            ]
+        );
             $isPasswordExist = true;
         }
 
