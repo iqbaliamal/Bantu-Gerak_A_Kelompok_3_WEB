@@ -44,7 +44,7 @@ class CampaignController extends Controller
                 'description'       => 'required'
             ],
             [
-                'image.required' => 'Image Wajib diisi',
+                'target_donation.requaired'=>'target donasi wajib diisi',
                 'image.image' => 'Image harus gambar',
                 'image.mimes' => "Image harus berekstensi .png .jpg .jpeg",
                 'title.required' => 'Title wajib diisi',
