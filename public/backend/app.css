@@ -1,0 +1,9 @@
+.img-prev-admin {
+    width: 400px;
+    height: 300px;
+    margin-top: 30px;
+    padding: 10px;
+    border-radius: 15px;
+    object-fit: cover;
+    object-position: center;
+}

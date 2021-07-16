@@ -35,6 +35,10 @@
                                   <div class="form-group">
                                       <div class="custom-file">
                                           <label>Gambar</label>
+                                          <div>
+
+                                            <img src="{{ $publication->image }}" alt="{{ $publication->title }}" class="img-prev-admin shadow">
+                                        </div>
                                         <input type="file" class="custom-file-input @error('image') is-invalid @enderror" name="image" id="customFile">
                                         <label class="custom-file-label" for="customFile">Choose file</label>
                                       </div>

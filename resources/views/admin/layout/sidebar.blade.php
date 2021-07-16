@@ -43,13 +43,13 @@
 
         <li class="menu-header">Profil</li>
         <li class="{{ request()->is('admin/profil') ? 'active' : '' }}">
-          <a href="#" class="nav-link"><i class="fas fa-user-circle"></i><span>Profil Saya</span></a>
+          <a href="{{route('admin.profile.index', ['id' =>  Auth::user()->id])}}" class="nav-link"><i class="fas fa-user-circle"></i><span>Profil Saya</span></a>
         </li>
 
-      {{-- <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
+      <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
         <a href="https://getstisla.com/docs" class="btn btn-primary btn-lg btn-block btn-icon-split">
           <i class="fas fa-rocket"></i> Documentation
         </a>
-      </div> --}}
+      </div>
     </aside>
   </div>

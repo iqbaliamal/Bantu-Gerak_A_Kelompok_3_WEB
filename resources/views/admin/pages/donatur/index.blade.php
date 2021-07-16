@@ -17,8 +17,6 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <button class="btn btn-primary" data-toggle="modal" data-target="#addCampaign">Tambah
-                                Donatur</button>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">

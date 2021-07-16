@@ -59,11 +59,8 @@
               <div class="row">
                   <div class="col-12">
                       <div class="card">
-                          <div class="card-header">
-                              aslkjdkas alskjd asd asd as
-                          </div>
-                          <div class="card-body">
-
+                        <div class="card-body">
+                              <h3 class="text-center">Selamat Datang {{Auth::user()->name}}! Tetap Semangat 🔥</h3>
                           </div>
                       </div>
                   </div>

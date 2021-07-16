@@ -32,7 +32,6 @@
                     <div class="title-campaign mt-3">
                         <a href="list-campaign/slug-slug">
                             <h3>{{$riwayat->campaign->title}}</h3>
-                            <pre><div id="result-json">JSON result will appear here after payment:<br></div></pre>
                         </a>
                     </div>
                     <div class="detail-riwayat">
@@ -77,6 +76,7 @@
                 snap.pay(coba, {
                     // Optional
                     onSuccess: function(result){
+                        // console.log(result);
                         // $.ajax({
                         // url: `/donasi/notificationHandler`,
                         // type: 'POST',
@@ -90,16 +90,18 @@
                         // });
 
                         // var data = $(this).data(JSON.stringify(result, null, 2));
-                        // var base = '{!! route('user.donasi.handler') !!}';
+                        var base = '{!! route('user.donasi.index') !!}';
                         // var url = base+'?data='+data ;
 
-                        // window.location.href=url;
+                        window.location.href=base;
                         // window.location.href = "{{ route('user.donasi.handler')}}";
                         // document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
                         // window.location.href = {{ route('user.donasi.handler') }} += JSON.stringify(result, null, 2);
                     },
                     // Optional
                     onPending: function(result){
+                        console.log(result);
+
                         // $.ajax({
                         // url: `/donasi/notificationHandler`,
                         // type: 'POST',
@@ -113,14 +115,16 @@
 
                         // });
                         // var data = $(this).data(JSON.stringify(result, null, 2));
-                        // var base = '{!! route('user.donasi.handler') !!}';
+                        var base = '{!! route('user.donasi.index') !!}';
                         // var url = base+'?data='+data ;
 
-                        // window.location.href=url;
+                        window.location.href=base;
                         // document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
                     },
                     // Optional
                     onError: function(result){
+                        console.log(result);
+
                         // $.ajax({
                         // url: `/donasi/notificationHandler`,
                         // type: 'POST',
@@ -134,10 +138,10 @@
 
                         // });
                         // var data = $(this).data(JSON.stringify(result, null, 2));
-                        // var base = '{!! route('user.donasi.handler') !!}';
+                        var base = '{!! route('user.donasi.index') !!}';
                         // var url = base+'?data='+data ;
 
-                        // window.location.href=url;
+                        window.location.href=base;
                         // document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
                     }
                 });

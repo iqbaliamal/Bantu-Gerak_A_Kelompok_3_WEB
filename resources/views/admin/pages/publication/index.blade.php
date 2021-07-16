@@ -40,7 +40,7 @@
                                             <td>{{$loop->iteration}}</td>
                                             <td>{{$row->title}}</td>
                                             <td><img src="{{$row->image}}" style="width: 200px"></td>
-                                            <td>{{$row->content}}</td>
+                                            <td>{{strip_tags($row->content)}}</td>
                                             <td>
                                                 <a href="{{route('admin.publication.edit', $row->id)}}" class="btn btn-warning"> <i
                                                         class="fa fa-edit"></i> </a>

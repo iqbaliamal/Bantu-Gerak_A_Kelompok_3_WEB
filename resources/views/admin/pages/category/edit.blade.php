@@ -32,7 +32,10 @@
 
                                     <div class="form-group">
                                         <label>Gambar</label>
-                                        <img src="{{ $category->image }}" alt="{{ $category->name }}">
+                                        <div>
+
+                                            <img src="{{ $category->image }}" alt="{{ $category->name }}" class="img-prev-admin shadow">
+                                        </div>
                                         <input type="file" class="form-control @error('image') is-invalid @enderror" name="image"
                                             value="{{ $category->image }}">
                                     </div>

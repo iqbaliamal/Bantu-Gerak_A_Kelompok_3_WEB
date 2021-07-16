@@ -38,7 +38,9 @@ Route::get('/list-campaign/{slug}', [LandingpageControler::class, 'getCampaign']
 Route::get('/blog', [BlogController::class, 'index'])->name('user.blog.index');
 Route::get('/blog/{slug}', [BlogController::class, 'getBlog'])->name('detailBlog');
 
-Route::resource('/donasi', DonasiUserController::class, ['as' => 'user']);
+// Route::resource('/donasi', DonasiUserController::class, ['as' => 'user']);
+Route::get('/donation', [DonasiUserController::class, 'index'])->name('user.donasi.index');
+Route::post('/donation', [DonasiUserController::class, 'store'])->name('user.donasi.store');
 Route::post('/donasi/notification', [DonasiUserController::class, 'notificationHandler'])->name('user.donasi.handler');
 
 Route::group(['middleware' => 'user'], function () {
@@ -64,7 +66,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
         Route::get('/donation/filter', [DonationController::class, 'filter'])->name('admin.donation.filter');
         Route::resource('/program', ProgramController::class, ['as' => 'admin']);
         Route::resource('/publication', PublicationController::class, ['as' => 'admin']);
-        Route::get('/profile', [ProfileController::class, 'index'])->name('admin.profile.index');
+        Route::get('/profile/{id}', [ProfileController::class, 'index'])->name('admin.profile.index');
+        Route::post('/profile/update/{id}', [ProfileController::class, 'update'])->name('admin.profile.update');
     });
 });
 

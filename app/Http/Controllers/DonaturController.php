@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Donatur;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DonaturController extends Controller
@@ -14,7 +15,7 @@ class DonaturController extends Controller
      */
     public function index()
     {
-        $donaturs = Donatur::latest()->get();
+        $donaturs = User::latest()->where('role', 'user')->get();
 
         return view('admin.pages.donatur.index', compact('donaturs'));
     }

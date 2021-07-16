@@ -27,7 +27,7 @@
 <hr>
         <div class="mt-4 mb-5 text-left">
             <h4><strong>{{$blog->title}}</strong></h4>
-            <p>{!!$blog->content!!} Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam voluptate, id saepe soluta ipsam debitis voluptates! Excepturi aliquam fugiat amet ad debitis a, saepe tenetur! A quam ipsa dolor ipsam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni corrupti officiis explicabo debitis autem vel amet, voluptate sint. Blanditiis nam quasi quia. Veniam dignissimos doloribus tenetur quo quasi excepturi alias. Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, vitae dolorem reprehenderit voluptatibus praesentium id aut a ad explicabo nulla iure nam laborum dolor deserunt labore consequatur nisi omnis fuga.</p>
+            <p>{!!$blog->content!!}</p>
         </div>
     </div>
 </main>

@@ -29,10 +29,11 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                     @enderror
-
+                                    <div>
+                                        <img src="{{ $program->image }}" alt="{{ $program->name }}" class="img-prev-admin shadow mb-5">
+                                    </div>
                                     <div class="form-group">
                                         <label>Gambar</label>
-                                        <img src="{{ $program->image }}" alt="{{ $program->name }}">
                                         <input type="file" class="form-control @error('image') is-invalid @enderror" name="image"
                                             value="{{ $program->image }}">
                                     </div>

@@ -13,5 +13,7 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         //
+        'http://4541152c2d9e.ngrok.io/donasi/notification',
+        'http://4541152c2d9e.ngrok.io/'
     ];
 }

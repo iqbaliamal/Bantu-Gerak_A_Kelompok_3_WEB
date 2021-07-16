@@ -33,14 +33,24 @@ class CampaignController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'image'             => 'required|image|mimes:png,jpg,jpeg',
-            'title'             => 'required',
-            'category_id'       => 'required',
-            'target_donation'   => 'required|numeric',
-            'max_date'          => 'required',
-            'description'       => 'required'
-        ]);
+        $this->validate(
+            $request,
+            [
+                'image'             => 'required|image|mimes:png,jpg,jpeg',
+                'title'             => 'required',
+                'category_id'       => 'required',
+                'target_donation'   => 'required|numeric',
+                'max_date'          => 'required',
+                'description'       => 'required'
+            ],
+            [
+                'image.required' => 'Image Wajib diisi',
+                'image.image' => 'Image harus gambar',
+                'image.mimes' => "Image harus berekstensi .png .jpg .jpeg",
+                'title.required' => 'Title wajib diisi',
+                // dst
+            ]
+        );
 
         //upload image
         $image = $request->file('image');
