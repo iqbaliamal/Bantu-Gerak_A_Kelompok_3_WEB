@@ -51,6 +51,9 @@ class PublicationController extends Controller
             [
                 'title.required' => 'Title wajib diisi',
                 'image.required' => 'Image wajib diisi',
+                'image.image'=>'image berupa gambar',
+                'image.mimes'=>'image berekstensi jpeg,jpg,png',
+                'image.max'=>'image resolusion mas 2000',
                 'content.required' => 'Image wajib diisi',
             ]
         );
