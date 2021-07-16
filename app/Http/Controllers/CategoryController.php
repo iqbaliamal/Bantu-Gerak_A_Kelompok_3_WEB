@@ -87,10 +87,17 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        $this->validate($request, [
+        $this->validate($request, 
+        [
             'name'          => 'required|unique:categories,name,' . $category->id,
-            'description'   => 'required',
-        ]);
+            'description'   => 'required'
+        ],
+        [
+            'name.required'=>'nama wajib diisi',
+            'nama.unique'=>'gunakan penamaan yang unik',
+            'description.required'=>'deskripsi wajib diisi',
+        ]
+    );
 
         //check jika image kosong
         if ($request->file('image') == '') {
