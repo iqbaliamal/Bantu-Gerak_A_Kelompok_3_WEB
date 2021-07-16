@@ -33,6 +33,14 @@ class ProgramController extends Controller
             'title'         => 'required',
             'image'          => 'required|image|mimes:jpeg,jpg,png|max:2000',
             'description'   => 'required',
+        ],
+        [
+            'title.required'=>'judul program wajib diisi',
+            'image.required'=>'image wajib diisi',
+            'image.image'=>'image berupa gambar',
+            'image.mimes'=>'image harus berekstensi jpeg,jpg,png',
+            'image.max'=>'image resolusion maximal 2000',
+            'description.required'=>'deskripsi wajib diisi',
         ]);
 
         //upload image
