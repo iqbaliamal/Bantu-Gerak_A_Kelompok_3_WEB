@@ -27,8 +27,13 @@ class DonationController extends Controller
     {
         $this->validate($request, [
             'date_from'  => 'required',
-            'date_to'    => 'required',
-        ]);
+            'date_to'    => 'required'
+        ],
+    [
+        'date_from.required'=>'tanggal donasi donatur wajib diisi',
+        'date_to.required'=>'waktu penggunaan wajib diisi ',
+    ]
+);
 
         $date_from  = $request->date_from;
         $date_to    = $request->date_to;
