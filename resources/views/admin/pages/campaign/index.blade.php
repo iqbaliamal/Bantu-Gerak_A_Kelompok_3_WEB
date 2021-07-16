@@ -75,24 +75,24 @@
                     <div class="form-group">
                         <label>Gambar</label>
                         <input type="file" class="form-control @error('image') is-invalid @enderror" name="image"
-                            value="{{ old('image') }}" required>
+                            value="{{ old('image') }}">
+                            @error('image')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                     </div>
-                    @error('image')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
 
                     <div class="form-group">
                         <label>Judul Campaign</label>
                         <input type="text" class="form-control @error('title') is-invalid @enderror" name="title"
-                            value="{{ old('title') }}" required>
+                            value="{{ old('title') }}">
+                            @error('title')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                     </div>
-                    @error('title')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
 
                     <div class="form-group">
                         <label>Kategori</label>
@@ -111,7 +111,7 @@
                     <div class="form-group">
                         <label>Target Donasi</label>
                         <input type="number" class="form-control @error('target_donation') is-invalid @enderror" name="target_donation"
-                            value="{{ old('target_donation') }}" required>
+                            value="{{ old('target_donation') }}">
                     </div>
                     @error('target_donation')
                     <span class="invalid-feedback" role="alert">
@@ -122,7 +122,7 @@
                     <div class="form-group">
                         <label>Tanggal Berahir</label>
                         <input type="date" class="form-control @error('max_date') is-invalid @enderror" name="max_date"
-                            value="{{ old('max_date') }}" required>
+                            value="{{ old('max_date') }}">
                     </div>
                     @error('max_date')
                     <span class="invalid-feedback" role="alert">
@@ -134,7 +134,7 @@
                     <div class="form-group">
                         <label>Deskripsi</label>
                         <textarea class="form-control @error('description') is-invalid @enderror" name="description"
-                            value="{{ old('description') }}" required></textarea>
+                            value="{{ old('description') }}"></textarea>
                     </div>
                     @error('description')
                     <span class="invalid-feedback" role="alert">
