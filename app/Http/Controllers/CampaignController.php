@@ -49,6 +49,10 @@ class CampaignController extends Controller
                 'image.mimes' => "Image harus berekstensi .png .jpg .jpeg",
                 'title.required' => 'Title wajib diisi',
                 'category_id.required' => 'Kategori wajib diisi',
+                'target_donation.requaired'=>'target donasi wajib diisi',
+                'target_donation.numeric'=>'target donasi berupa angka atau nominal',
+                'max_date.required'=>'tanggal wajib diisi',
+                'description.required'=>'deskripsi wajib diisi',
                 // dst
             ]
         );
