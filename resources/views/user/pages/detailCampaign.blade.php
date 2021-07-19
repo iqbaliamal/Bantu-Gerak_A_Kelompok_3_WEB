@@ -37,7 +37,7 @@
                 <b>{{ moneyFormat($data->target_donation) }}</b> </p>
             <div class="row justify-content-between">
                 <div class="col-auto">
-                    
+
                 </div>
                 <div class="col-auto">
                     @if (\Carbon\Carbon::parse( $data->max_date )->diffInDays( Carbon\Carbon::now()) > 0)
@@ -60,7 +60,7 @@
             @endauth
 
             @guest
-            <a href="{{route('login')}}">
+            <a href="{{route('show.login')}}">
                 <button type="button" class="btn btn-primary">Donasi Sekarang !</button>
             </a>
             @endguest

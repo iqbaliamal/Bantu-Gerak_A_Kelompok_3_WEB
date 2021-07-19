@@ -48,6 +48,8 @@ Route::group(['middleware' => 'user'], function () {
 
 Auth::routes();
 Route::get('logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('login', [LoginController::class, 'showLoginForm'])->name('show.login');
+Route::post('login', [LoginController::class, 'login'])->name('login');
 // Route::get('login', [LoginController::class, 'login'])->name('login');
 
 //group route with prefix "admin"

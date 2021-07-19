@@ -102,7 +102,7 @@
 
                     <li class="dropdown"><a href="#"><span>Akun</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
-                            <li><a href="{{route('login')}}">Login</a></li>
+                            <li><a href="{{route('show.login')}}">Login</a></li>
                             <hr>
                             <li><a href="{{route('register')}}">Register</a></li>
                         </ul>
