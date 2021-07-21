@@ -26,12 +26,12 @@ Route::post('/donation/notification', [DonationController::class, 'notificationH
 // /**
 //  * Api Register
 //  */
-// Route::post('/register', [RegisterController::class, 'register']);
+Route::post('/register', [RegisterController::class, 'register']);
 
 // /**
 //  * Api Login
 //  */
-// Route::post('/login', [LoginController::class, 'login']);
+Route::post('/login', [LoginController::class, 'login']);
 
 /**
  * Api Campaign
