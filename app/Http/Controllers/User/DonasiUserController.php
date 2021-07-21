@@ -36,7 +36,7 @@ class DonasiUserController extends Controller
             $riwayatDonasi = Donation::with('campaign')->where('user_id', $user_id)->latest()->get();
             return view('user.pages.riwayatDonasi', compact('riwayatDonasi'));
         } else {
-            return view('error-404');
+            return redirect('login')->with('pesan-error', 'Anda harus login terlebih dahulu!');
         }
     }
 

@@ -74,7 +74,7 @@ class LoginController extends Controller
             $request->session()->put('time_logged', date('Y-m-d H:i:s'));
             return redirect()->intended('/admin');
         } elseif (Auth::attempt(['email' => $email, 'password' => $password, 'role' => 'user'], $remember)) {
-            Auth::logoutOtherDevices($request->get('password'));
+            // Auth::logoutOtherDevices($request->get('password'));
             $request->session()->regenerate();
             $data = User::where('email', $email)->first();
             $request->session()->put('users', $data);

@@ -35,6 +35,14 @@
             <div class="card card-primary">
               <div class="card-header"><h4>Login</h4></div>
 
+            @if(session()->has('pesan-error'))
+            <div class="container">
+                <div class="alert alert-danger">
+                    {{ session()->get('pesan-error') }}
+                </div>
+            </div>
+            @endif
+
               <div class="card-body">
               <form method="POST" action="{{ route('login') }}" class="needs-validation" novalidate="">
                   @csrf
