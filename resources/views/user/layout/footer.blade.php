@@ -43,22 +43,20 @@
   <script src="{{asset('user/js/main.js')}}"></script>
 
   <script>
-      @if(session() - > has('success'))
+      @if(session()->has('success'))
 
       Swal.fire({
           icon: 'success',
-          text: '{{ session('
-          success ') }}',
+          text: '{{ session('success') }}',
           showConfirmButton: false,
           timer: 3000
       })
 
-      @elseif(session() - > has('error'))
+      @elseif(session()->has('error'))
 
       Swal.fire({
           icon: 'error',
-          title: '{{ session('
-          error ') }}',
+          title: '{{ session('error') }}',
           showConfirmButton: false,
           timer: 3000
       })

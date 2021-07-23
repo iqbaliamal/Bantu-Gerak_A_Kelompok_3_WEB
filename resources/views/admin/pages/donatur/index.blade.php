@@ -1,6 +1,6 @@
 @extends('admin.layout.master')
 
-@section('title', 'Admin - Kategori')
+@section('title', 'Admin - Donatur')
 @section('content')
 <!-- Main Content -->
 <div class="main-content">
@@ -8,7 +8,7 @@
         <div class="section-header">
             <h1>Donatur</h1>
             <div class="section-header-breadcrumb">
-                <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
+                <div class="breadcrumb-item active"><a href="{{route('admin.dashboard.index')}}">Dashboard</a></div>
                 <div class="breadcrumb-item">Donatur</div>
             </div>
         </div>

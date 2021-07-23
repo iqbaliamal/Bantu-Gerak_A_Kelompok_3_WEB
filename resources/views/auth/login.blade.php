@@ -107,7 +107,7 @@
               </div>
             </div>
             <div class="mt-5 text-muted text-center">
-              Belum punya akun? <a href="auth-register.html">Daftar disini</a>
+              Belum punya akun? <a href="{{route('register')}}">Daftar disini</a>
             </div>
             <div class="simple-footer">
               Copyright &copy; Bantu Gerak {{date("Y")}}

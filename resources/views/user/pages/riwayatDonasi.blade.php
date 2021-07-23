@@ -78,76 +78,23 @@
                 snap.pay(coba, {
                     // Optional
                     onSuccess: function (result) {
-                        // console.log(result);
-                        // $.ajax({
-                        // url: `/donasi/notificationHandler`,
-                        // type: 'POST',
-                        // data: {
-                        //     getContent : JSON.stringify(result, null, 2)
-                        // },
-                        // success: function(info){
-                        //     console.log(info);
-                        // }
-
-                        // });
-
-                        // var data = $(this).data(JSON.stringify(result, null, 2));
-                        var base = '{!! route('
-                        user.donasi.index ') !!}';
-                        // var url = base+'?data='+data ;
+                        var base = '{!! route('user.donasi.index') !!}';
 
                         window.location.href = base;
-                        // window.location.href = "{{ route('user.donasi.handler')}}";
-                        // document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
-                        // window.location.href = {{ route('user.donasi.handler') }} += JSON.stringify(result, null, 2);
                     },
                     // Optional
                     onPending: function (result) {
                         console.log(result);
-
-                        // $.ajax({
-                        // url: `/donasi/notificationHandler`,
-                        // type: 'POST',
-                        // // data: JSON.stringify(result, null, 2),
-                        // data: {
-                        //     getContent : JSON.stringify(result, null, 2)
-                        // },
-                        // success: function(info){
-                        //     console.log(info);
-                        // }
-
-                        // });
-                        // var data = $(this).data(JSON.stringify(result, null, 2));
-                        var base = '{!! route('
-                        user.donasi.index ') !!}';
-                        // var url = base+'?data='+data ;
+                        var base = '{!! route('user.donasi.index') !!}';
 
                         window.location.href = base;
-                        // document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
                     },
                     // Optional
                     onError: function (result) {
                         console.log(result);
-
-                        // $.ajax({
-                        // url: `/donasi/notificationHandler`,
-                        // type: 'POST',
-                        // // data: JSON.stringify(result, null, 2),
-                        // data: {
-                        //     getContent : JSON.stringify(result, null, 2)
-                        // },
-                        // success: function(info){
-                        //     console.log(info);
-                        // }
-
-                        // });
-                        // var data = $(this).data(JSON.stringify(result, null, 2));
-                        var base = '{!! route('
-                        user.donasi.index ') !!}';
-                        // var url = base+'?data='+data ;
+                        var base = '{!! route('user.donasi.index') !!}';
 
                         window.location.href = base;
-                        // document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
                     }
                 });
             };

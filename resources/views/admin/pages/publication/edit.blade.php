@@ -1,16 +1,17 @@
 @extends('admin.layout.master')
 
-@section('title', 'Admin - Kategori')
+@section('title', 'Admin - Edit Publication')
 
 @section('content')
 <!-- Main Content -->
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>Publication</h1>
+            <h1>Edit Publication</h1>
             <div class="section-header-breadcrumb">
-                <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
+                <div class="breadcrumb-item active"><a href="{{route('admin.dashboard.index')}}">Dashboard</a></div>
                 <div class="breadcrumb-item"><a href="{{route('admin.publication.index')}}">Publication</a></div>
+                <div class="breadcrumb-item">Edit Publication</div>
             </div>
         </div>
         <div class="section-body">

@@ -1,6 +1,6 @@
 @extends('admin.layout.master')
 
-@section('title', 'Admin - Kategori')
+@section('title', 'Admin - Publication')
 
 @section('content')
 <!-- Main Content -->
@@ -9,7 +9,7 @@
         <div class="section-header">
             <h1>Publication</h1>
             <div class="section-header-breadcrumb">
-                <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
+                <div class="breadcrumb-item active"><a href="{{route('admin.dashboard.index')}}">Dashboard</a></div>
                 <div class="breadcrumb-item">Publication</div>
             </div>
         </div>
