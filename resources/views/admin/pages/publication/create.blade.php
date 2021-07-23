@@ -18,44 +18,49 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <form action="{{route('admin.publication.store')}}" method="post" enctype="multipart/form-data">
+                            <form action="{{route('admin.publication.store')}}" method="post"
+                                enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
                                     <label>Title</label>
-                                    <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title') }}">
+                                    <input type="text" class="form-control @error('title') is-invalid @enderror"
+                                        name="title" value="{{ old('title') }}">
                                     @error('title')
-                                      <span class="invalid-feedback" role="alert">
+                                    <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
-                                      </span>
+                                    </span>
                                     @enderror
                                 </div>
 
-                                  <div class="form-group">
-                                      <div class="custom-file">
-                                          <label>Gambar</label>
-                                        <input type="file" class="custom-file-input @error('image') is-invalid @enderror" name="image" id="customFile">
+                                <div class="form-group">
+                                    <div class="custom-file">
+                                        <label>Gambar</label>
+                                        <input type="file"
+                                            class="custom-file-input @error('image') is-invalid @enderror" name="image"
+                                            id="customFile">
                                         <label class="custom-file-label" for="customFile">Choose file</label>
-                                      </div>
-                                      @error('image')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                  </div>
+                                    </div>
+                                    @error('image')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
 
-                                  <div class="form-group">
+                                <div class="form-group">
                                     <label>Content</label>
-                                    <textarea id="summernote" name="content" class="summernote" rows="" cols="40"></textarea>
+                                    <textarea id="summernote" name="content" class="summernote" rows=""
+                                        cols="40"></textarea>
                                     @error('content')
-                                      <span class="invalid-feedback" role="alert">
-                                          <strong>{{ $message }}</strong>
-                                      </span>
-                                      @enderror
-                                  </div>
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
 
-                                  <div class="form-group">
+                                <div class="form-group">
                                     <button type="submit" class="btn btn-primary">Save</button>
-                                  </div>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -67,9 +72,9 @@
 @endsection
 
 @push('css-libraries')
-    <link rel="stylesheet" href="{{asset('backend/modules/summernote/summernote-bs4.css')}}">
+<link rel="stylesheet" href="{{asset('backend/modules/summernote/summernote-bs4.css')}}">
 @endpush
 
 @push('js-libraries')
-    <script src="{{asset('backend/modules/summernote/summernote-bs4.js')}}"></script>
+<script src="{{asset('backend/modules/summernote/summernote-bs4.js')}}"></script>
 @endpush

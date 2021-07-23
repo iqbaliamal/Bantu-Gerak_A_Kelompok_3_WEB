@@ -29,7 +29,7 @@ class DonationController extends Controller
     public function index()
     {
         //get data donations
-        $donations = Donation::with('campaign')->where('user_', auth()->guard('api')->user()->id)->latest()->paginate(5);
+        $donations = Donation::with('campaign')->where('user_id', auth()->guard('api')->user()->id)->latest()->get();
 
         //return with response JSON
         return response()->json([

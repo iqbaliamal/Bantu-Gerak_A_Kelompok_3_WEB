@@ -10,7 +10,7 @@
                 <h2>Detail Campaign</h2>
                 <ol>
                     <li><a href="/">Beranda</a></li>
-                    <li><a href="/campaign">List Campaign</a></li>
+                    <li><a href="/list-campaign">List Campaign</a></li>
                     <li>{{$data->slug}}</li>
                 </ol>
             </div>
@@ -91,27 +91,28 @@
                         <div class="form-group">
                             <input type="text" value="{{$data->slug}}" name="campaignSlug" hidden>
                             <label for="amount"><strong>Rp.</strong></label>
-                            <input type="number" class="form-control @error('amount') is-invalid @enderror" id="amount" name="amount"
-                                placeholder="0" value="{{ old('amount') }}">
+                            <input type="number" class="form-control @error('amount') is-invalid @enderror" id="amount"
+                                name="amount" placeholder="0" value="{{ old('amount') }}">
                             <small class="form-text text-muted">Silahkan masukkan jumlah yang akan anda
                                 donasikan.</small>
                         </div>
 
                         @error('amount')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
 
                         <div class="form-group">
                             <label for="pray"><strong>Do'a</strong></label>
-                            <textarea name="pray" id="pray" class="form-control @error('pray') is-invalid @enderror" cols="30" rows="5">{{ old('pray') }}</textarea>
+                            <textarea name="pray" id="pray" class="form-control @error('pray') is-invalid @enderror"
+                                cols="30" rows="5">{{ old('pray') }}</textarea>
                         </div>
                         @error('pray')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                         <div class="col-lg-12 text-center">
                             <button type="submit" class="btn btn-primary">Lanjut Pembayaran</button>
                         </div>

@@ -3,4 +3,3 @@
 @yield('content')
 
 @include('admin.layout.footer')
-

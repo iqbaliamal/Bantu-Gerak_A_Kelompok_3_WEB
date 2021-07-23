@@ -29,11 +29,22 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'image'         => 'required|image|mimes:jpeg,jpg,png|max:2000',
-            'name'          => 'required|unique:categories',
-            'description'   => 'required',
-        ]);
+        $this->validate(
+            $request,
+            [
+                'image'         => 'required|image|mimes:jpeg,jpg,png|max:2000',
+                'name'          => 'required|unique:categories',
+                'description'   => 'required',
+            ],
+            [
+                'image.required'        => 'Kolom Gambar wajib diisi',
+                'image.image'           => 'Kolom Gambar harus diisi gambar',
+                'image.mimes'           => 'Gambar harus berformat: jpeg, jpg, png.',
+                'name.required'         => 'Nama wajib diisi',
+                'name.unique'           => 'Nama kategori sudah digunakan',
+                'description.required'  => 'Kolom Deskripsi wajib diisi',
+            ]
+        );
 
         //upload image
         $image = $request->file('image');
@@ -87,17 +98,18 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        $this->validate($request, 
-        [
-            'name'          => 'required|unique:categories,name,' . $category->id,
-            'description'   => 'required'
-        ],
-        [
-            'name.required'=>'nama wajib diisi',
-            'nama.unique'=>'gunakan penamaan yang unik',
-            'description.required'=>'deskripsi wajib diisi',
-        ]
-    );
+        $this->validate(
+            $request,
+            [
+                'name'          => 'required|unique:categories,name,' . $category->id,
+                'description'   => 'required'
+            ],
+            [
+                'name.required'         => 'Kolom Nama wajib diisi',
+                'nama.unique'           => 'Nama kategori sudah digunakan',
+                'description.required'  => 'Kolom Deskripsi wajib diisi',
+            ]
+        );
 
         //check jika image kosong
         if ($request->file('image') == '') {

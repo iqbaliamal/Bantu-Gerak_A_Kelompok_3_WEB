@@ -48,7 +48,9 @@
                             </div>
                             <p class="card-text" style="margin: 0;"><strong>Donasi terkumpul</strong></p>
 
-                            <p class="card-text deadline"><b>@foreach ($campaign->sumDonation as $total){{ moneyFormat($total->total) }} @endforeach</b> dari <b>{{ moneyFormat($campaign->target_donation) }}</b>
+                            <p class="card-text deadline"><b>@foreach ($campaign->sumDonation as
+                                    $total){{ moneyFormat($total->total) }} @endforeach</b> dari
+                                <b>{{ moneyFormat($campaign->target_donation) }}</b>
                             </p>
 
                             <div class="deadline">
@@ -80,63 +82,63 @@
     <section id="penerima">
         <div class="section-header">
             <div class="container">
-            <h2>Penerima Manfaat</h2>
-        </div>
+                <h2>Penerima Manfaat</h2>
+            </div>
         </div>
         <div class="section-count">
-        <div class="container">
+            <div class="container">
 
-            <div class="row ">
-                <div class="col-md-3 col-sm-6 col-12">
-                    <div class="card shadow border-0 p-5 recap-list">
-                        <span class="recap-list-icon">
-                            <img src="{{asset('user/img/icon/donasi.svg')}}" alt="">
-                        </span>
-                        <span class="recap-list-detail">
-                            <h1 id="ododonasi" class="odometer odometer-auto-theme mb-1">843</h1>
-                            <p>Penerima Manfaat</p>
-                        </span>
+                <div class="row ">
+                    <div class="col-md-3 col-sm-6 col-12">
+                        <div class="card shadow border-0 p-5 recap-list">
+                            <span class="recap-list-icon">
+                                <img src="{{asset('user/img/icon/donasi.svg')}}" alt="">
+                            </span>
+                            <span class="recap-list-detail">
+                                <h1 id="ododonasi" class="odometer odometer-auto-theme mb-1">843</h1>
+                                <p>Penerima Manfaat</p>
+                            </span>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-3 col-sm-6 col-12">
-                    <div class="card shadow border-0 p-5 recap-list">
-                        <span class="recap-list-icon">
-                            <img src="{{asset('user/img/icon/relawan.svg')}}" alt="">
-                        </span>
-                        <span class="recap-list-detail">
+                    <div class="col-md-3 col-sm-6 col-12">
+                        <div class="card shadow border-0 p-5 recap-list">
+                            <span class="recap-list-icon">
+                                <img src="{{asset('user/img/icon/relawan.svg')}}" alt="">
+                            </span>
+                            <span class="recap-list-detail">
 
-                            <h1 id="odorelawan" class="odometer odometer-auto-theme mb-1">923</h1>
-                            <p>Total Donasi</p>
-                        </span>
+                                <h1 id="odorelawan" class="odometer odometer-auto-theme mb-1">923</h1>
+                                <p>Total Donasi</p>
+                            </span>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-3 col-sm-6 col-12">
-                    <div class="card shadow border-0 p-5 recap-list">
-                        <span class="recap-list-icon">
-                            <img src="{{asset('user/img/icon/donatur.svg')}}" alt="">
-                        </span>
-                        <span class="recap-list-detail">
+                    <div class="col-md-3 col-sm-6 col-12">
+                        <div class="card shadow border-0 p-5 recap-list">
+                            <span class="recap-list-icon">
+                                <img src="{{asset('user/img/icon/donatur.svg')}}" alt="">
+                            </span>
+                            <span class="recap-list-detail">
 
-                            <h1 id="ododonatur" class="odometer odometer-auto-theme mb-1">18</h1>
-                            <p>Program Kebaikan</p>
-                        </span>
+                                <h1 id="ododonatur" class="odometer odometer-auto-theme mb-1">18</h1>
+                                <p>Program Kebaikan</p>
+                            </span>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-3 col-sm-6 col-12">
-                    <div class="card shadow border-0 p-5 recap-list">
-                        <span class="recap-list-icon">
-                            <img src="{{asset('user/img/icon/kolab.svg')}}" alt="">
-                        </span>
-                        <span class="recap-list-detail">
+                    <div class="col-md-3 col-sm-6 col-12">
+                        <div class="card shadow border-0 p-5 recap-list">
+                            <span class="recap-list-icon">
+                                <img src="{{asset('user/img/icon/kolab.svg')}}" alt="">
+                            </span>
+                            <span class="recap-list-detail">
 
-                            <h1 id="odokolaborator" class="odometer odometer-auto-theme mb-1">8723</h1>
-                            <p>Total Relawan</p>
-                        </span>
+                                <h1 id="odokolaborator" class="odometer odometer-auto-theme mb-1">8723</h1>
+                                <p>Total Relawan</p>
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     </section><!-- End Peneima Section -->
 
     <!-- Section Program Kebaikan -->
@@ -150,7 +152,8 @@
                 @foreach ($programs as $program)
                 <div class="col-lg-4">
                     <div class="box wow fadeInLeft">
-                        <div class="icon shadow-sm"><img src="{{$program->image}}" style="max-width: 75px;" alt=""></div>
+                        <div class="icon shadow-sm"><img src="{{$program->image}}" style="max-width: 75px;" alt="">
+                        </div>
                         <h4 class="title"><a href="">{{$program->title}}</a></h4>
                         <p class="description">{{$program->description}}</p>
                     </div>
@@ -172,8 +175,9 @@
                 @foreach ($publications as $publication)
                 <div class="col-md-4 col-sm-10 my-3">
                     <div class="card border-0 shadow">
-                        <a href="blog/{{ $publication->slug }}"><img src=" {{asset($publication->image)}}" class="card-img-top"
-                                alt="..." style="width: 100%;height: 200px; object-fit: cover; object-position: center"></a>
+                        <a href="blog/{{ $publication->slug }}"><img src=" {{asset($publication->image)}}"
+                                class="card-img-top" alt="..."
+                                style="width: 100%;height: 200px; object-fit: cover; object-position: center"></a>
                         <div class="card-body">
                             <div class="card-head d-flex justify-content-between">
                                 <a class="news-tag" href=""></a>
@@ -185,12 +189,15 @@
                                     @endif
                                 </p>
                             </div>
-                            <h5 class="card-title"><a href="blog/{{ $publication->slug }}">{{ $publication->title}}</a></h5>
+                            <h5 class="card-title"><a href="blog/{{ $publication->slug }}">{{ $publication->title}}</a>
+                            </h5>
 
                             <p class="card-text">{{ Str::substr(strip_tags($publication->content), 0, 100) }}....</p>
                             <hr>
                             <div class="d-flex justify-content-between">
-                                <p class="publisher"><i class="fas fa-user fa-sm"></i>&nbsp<span>{{ $publication->user->name}}</span></p>
+                                <p class="publisher"><i
+                                        class="fas fa-user fa-sm"></i>&nbsp<span>{{ $publication->user->name}}</span>
+                                </p>
                                 <a href="blog/{{ $publication->slug }}" class="card-foot">Read More</a>
                             </div>
                         </div>

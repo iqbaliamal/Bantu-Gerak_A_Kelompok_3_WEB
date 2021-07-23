@@ -44,15 +44,15 @@ class CampaignController extends Controller
                 'description'       => 'required'
             ],
             [
-                'target_donation.requaired'=>'target donasi wajib diisi',
-                'image.image' => 'Image harus gambar',
-                'image.mimes' => "Image harus berekstensi .png .jpg .jpeg",
-                'title.required' => 'Title wajib diisi',
-                'category_id.required' => 'Kategori wajib diisi',
-                'target_donation.requaired'=>'target donasi wajib diisi',
-                'target_donation.numeric'=>'target donasi berupa angka atau nominal',
-                'max_date.required'=>'tanggal wajib diisi',
-                'description.required'=>'deskripsi wajib diisi',
+                'target_donation.required'      => 'Kolom target donasi wajib diisi',
+                'image.image'                   => 'Kolom Gambar harus diisi gambar',
+                'image.mimes'                   => "Gambar harus berformat: .png .jpg .jpeg",
+                'title.required'                => 'Kolom Title wajib diisi',
+                'category_id.required'          => 'Kolom Kategori wajib diisi',
+                'target_donation.required'      => 'Kolom Target donasi wajib diisi',
+                'target_donation.numeric'       => 'Kolom Target donasi berupa angka atau nominal',
+                'max_date.required'             => 'Kolom Tanggal wajib diisi',
+                'description.required'          => 'Kolom Deskripsi wajib diisi',
                 // dst
             ]
         );
@@ -102,13 +102,24 @@ class CampaignController extends Controller
      */
     public function update(Request $request, Campaign $campaign)
     {
-        $this->validate($request, [
-            'title'             => 'required',
-            'category_id'       => 'required',
-            'target_donation'   => 'required|numeric',
-            'max_date'          => 'required',
-            'description'       => 'required'
-        ]);
+        $this->validate(
+            $request,
+            [
+                'title'             => 'required',
+                'category_id'       => 'required',
+                'target_donation'   => 'required|numeric',
+                'max_date'          => 'required',
+                'description'       => 'required'
+            ],
+            [
+                'title.required'                => 'Kolom Title wajib diisi',
+                'category_id.required'          => 'Kolom Kategori wajib diisi',
+                'target_donation.required'     => 'Kolom Target donasi wajib diisi',
+                'target_donation.numeric'       => 'Kolom Target donasi berupa angka atau nominal',
+                'max_date.required'             => 'Kolom Tanggal wajib diisi',
+                'description.required'          => 'Kolom Deskripsi wajib diisi',
+            ]
+        );
 
         //check jika image kosong
         if ($request->file('image') == '') {

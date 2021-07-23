@@ -22,7 +22,8 @@
             <div class="col-lg 12">
                 <div class="card border-0 shadow box-campaign">
                     <a href="list-campaign/{{ $list->slug }}">
-                        <img src=" {{asset($list->image)}}" class="card-img-top" alt="..." style="width: 100%;height: 200px; object-fit: cover; object-position: center">
+                        <img src=" {{asset($list->image)}}" class="card-img-top" alt="..."
+                            style="width: 100%;height: 200px; object-fit: cover; object-position: center">
                     </a>
                     <div class="title-campaign mt-3">
                         <a href="list-campaign/{{$list->slug}}">
@@ -31,11 +32,12 @@
                     </div>
                     <div class="body-campaign">
                         <div class="penggalang">
-                           <p> <i class="fas fa-user fa-sm"></i>&nbsp;{{($list->user->name)}}</p>
+                            <p> <i class="fas fa-user fa-sm"></i>&nbsp;{{($list->user->name)}}</p>
                         </div>
                         <p style="margin: 0;"><strong>Donasi terkumpul</strong></p>
 
-                        <p><b>@foreach ($list->sumDonation as $total){{ moneyFormat($total->total) }} @endforeach</b> dari <b>{{ moneyFormat($list->target_donation) }}</b>
+                        <p><b>@foreach ($list->sumDonation as $total){{ moneyFormat($total->total) }} @endforeach</b>
+                            dari <b>{{ moneyFormat($list->target_donation) }}</b>
                         </p>
 
                         <div class="deadline">

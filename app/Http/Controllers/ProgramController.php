@@ -29,19 +29,22 @@ class ProgramController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'title'         => 'required',
-            'image'          => 'required|image|mimes:jpeg,jpg,png|max:2000',
-            'description'   => 'required',
-        ],
-        [
-            'title.required'=>'judul program wajib diisi',
-            'image.required'=>'image wajib diisi',
-            'image.image'=>'image berupa gambar',
-            'image.mimes'=>'image harus berekstensi jpeg,jpg,png',
-            'image.max'=>'image resolusion maximal 2000',
-            'description.required'=>'deskripsi wajib diisi',
-        ]);
+        $this->validate(
+            $request,
+            [
+                'title'             => 'required',
+                'image'             => 'required|image|mimes:jpeg,jpg,png|max:2000',
+                'description'       => 'required',
+            ],
+            [
+                'title.required'        => 'Kolom Judul program wajib diisi',
+                'image.required'        => 'Kolom Gambar wajib diisi',
+                'image.image'           => 'Gambar harus diisi gambar',
+                'image.mimes'           => 'Gambar harus berekstensi: jpeg, jpg, png',
+                'image.max'             => 'Ukuran gambar maksimal 2000',
+                'description.required'  => 'Kolom Deskripsi wajib diisi',
+            ]
+        );
 
         //upload image
         $image = $request->file('image');
@@ -83,10 +86,17 @@ class ProgramController extends Controller
      */
     public function update(Request $request, Program $program)
     {
-        $this->validate($request, [
-            'title'         => 'required',
-            'description'   => 'required'
-        ]);
+        $this->validate(
+            $request,
+            [
+                'title'         => 'required',
+                'description'   => 'required'
+            ],
+            [
+                'title.required' => 'Kolom Judul program wajib diisi',
+                'description.required' => 'Kolom Deskripsi wajib diisi',
+            ]
+        );
 
         //check jika image kosong
         if ($request->file('image') == '') {

@@ -39,7 +39,8 @@
                         <p class="card-text">{{ Str::substr(strip_tags($blog->content), 0, 100) }}....</p>
                         <hr>
                         <div class="d-flex justify-content-between">
-                            <p class="publisher"><i class="fas fa-user fa-sm"></i>&nbsp<span>{{ $blog->user->name}}</span></p>
+                            <p class="publisher"><i
+                                    class="fas fa-user fa-sm"></i>&nbsp<span>{{ $blog->user->name}}</span></p>
                             <a href="blog/{{ $blog->slug }}" class="card-foot">Read More</a>
                         </div>
                     </div>

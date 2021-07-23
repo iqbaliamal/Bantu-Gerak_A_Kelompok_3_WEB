@@ -16,47 +16,50 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <form action="{{route('admin.category.update', $category->id)}}" method="post" enctype="multipart/form-data">
-                                    {{csrf_field()}}
-                                    @method('PUT')
-                                    <div class="form-group">
-                                        <label>Nama Kategori</label>
-                                        <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
-                                            value="{{ $category->name }}" required>
-                                    </div>
+                            <form action="{{route('admin.category.update', $category->id)}}" method="post"
+                                enctype="multipart/form-data">
+                                {{csrf_field()}}
+                                @method('PUT')
+                                <div class="form-group">
+                                    <label>Nama Kategori</label>
+                                    <input type="text" class="form-control @error('name') is-invalid @enderror"
+                                        name="name" value="{{ $category->name }}">
                                     @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                     @enderror
+                                </div>
 
-                                    <div class="form-group">
-                                        <label>Gambar</label>
-                                        <div>
+                                <div class="form-group">
+                                    <label>Gambar</label>
+                                    <div>
 
-                                            <img src="{{ $category->image }}" alt="{{ $category->name }}" class="img-prev-admin shadow">
-                                        </div>
-                                        <input type="file" class="form-control @error('image') is-invalid @enderror" name="image"
-                                            value="{{ $category->image }}">
+                                        <img src="{{ $category->image }}" alt="{{ $category->name }}"
+                                            class="img-prev-admin shadow">
                                     </div>
+                                    <input type="file" class="form-control @error('image') is-invalid @enderror"
+                                        name="image" value="{{ $category->image }}">
                                     @error('image')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                     @enderror
+                                </div>
 
-                                    <div class="form-group">
-                                        <label>Deskripsi</label>
-                                        <input type="text" class="form-control @error('description') is-invalid @enderror" name="description"
-                                            value="{{ $category->description }}" required>
-                                    </div>
+                                <div class="form-group">
+                                    <label>Deskripsi</label>
+                                    <input type="text" class="form-control @error('description') is-invalid @enderror"
+                                        name="description" value="{{ $category->description }}">
                                     @error('description')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                     @enderror
+                                </div>
                                 <div class="modal-footer">
-                                    <a href="{{route('admin.category.index')}}" type="button" class="btn btn-secondary">Batal</a>
+                                    <a href="{{route('admin.category.index')}}" type="button"
+                                        class="btn btn-secondary">Batal</a>
                                     <button type="submit" class="btn btn-primary">Simpan</button>
                                 </div>
                             </form>

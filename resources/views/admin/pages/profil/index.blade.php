@@ -21,7 +21,8 @@
                                 <img src="{{asset($profil->avatar)}}" alt="foto" height="300px">
                             </div>
                             {{-- <form action="#" method="post" enctype="multipart/form-data"> --}}
-                            <form action="{{route('admin.profile.update', ['id' => $profil->id])}}" method="post" enctype="multipart/form-data">
+                            <form action="{{route('admin.profile.update', ['id' => $profil->id])}}" method="post"
+                                enctype="multipart/form-data">
                                 {{csrf_field()}}
                                 <div class="form-group">
                                     <label>Name</label>
@@ -51,7 +52,7 @@
                                 <hr>
                                 <label><strong>Ubah Password</strong>
                                 </label>
-                                    <span> </span><strong class="text-danger"><small>Bersifat OPSIONAL!</small></strong>
+                                <span> </span><strong class="text-danger"><small>Bersifat OPSIONAL!</small></strong>
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-group">

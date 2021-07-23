@@ -18,51 +18,58 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <form action="{{route('admin.publication.update', $publication->id)}}" method="post" enctype="multipart/form-data">
+                            <form action="{{route('admin.publication.update', $publication->id)}}" method="post"
+                                enctype="multipart/form-data">
                                 {{csrf_field()}}
                                 @method('PUT')
 
                                 <div class="form-group">
                                     <label>Title</label>
-                                    <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ $publication->title }}">
+                                    <input type="text" class="form-control @error('title') is-invalid @enderror"
+                                        name="title" value="{{ $publication->title }}">
                                     @error('title')
-                                      <span class="invalid-feedback" role="alert">
+                                    <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
-                                      </span>
+                                    </span>
                                     @enderror
                                 </div>
 
-                                  <div class="form-group">
-                                      <div class="custom-file">
-                                          <label>Gambar</label>
-                                          <div>
+                                <div class="form-group">
+                                    <div class="custom-file">
+                                        <label>Gambar</label>
+                                        <div>
 
-                                            <img src="{{ $publication->image }}" alt="{{ $publication->title }}" class="img-prev-admin shadow">
+                                            <img src="{{ $publication->image }}" alt="{{ $publication->title }}"
+                                                class="img-prev-admin shadow">
                                         </div>
-                                        <input type="file" class="custom-file-input @error('image') is-invalid @enderror" name="image" id="customFile">
+                                        <input type="file"
+                                            class="custom-file-input @error('image') is-invalid @enderror" name="image"
+                                            id="customFile">
                                         <label class="custom-file-label" for="customFile">Choose file</label>
-                                      </div>
-                                      @error('image')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                  </div>
+                                    </div>
+                                    @error('image')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
 
-                                  <div class="form-group">
+                                <div class="form-group">
                                     <label>Content</label>
-                                    <textarea id="summernote" name="content" class="summernote" rows="" cols="40">{{$publication->content}}</textarea>
+                                    <textarea id="summernote" name="content" class="summernote" rows=""
+                                        cols="40">{{$publication->content}}</textarea>
                                     @error('content')
-                                      <span class="invalid-feedback" role="alert">
-                                          <strong>{{ $message }}</strong>
-                                      </span>
-                                      @enderror
-                                  </div>
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
 
-                                  <div class="form-group">
-                                    <a href="{{route('admin.publication.index')}}" type="button" class="btn btn-secondary">Batal</a>
+                                <div class="form-group">
+                                    <a href="{{route('admin.publication.index')}}" type="button"
+                                        class="btn btn-secondary">Batal</a>
                                     <button type="submit" class="btn btn-primary">Save</button>
-                                  </div>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -74,9 +81,9 @@
 @endsection
 
 @push('css-libraries')
-    <link rel="stylesheet" href="{{asset('backend/modules/summernote/summernote-bs4.css')}}">
+<link rel="stylesheet" href="{{asset('backend/modules/summernote/summernote-bs4.css')}}">
 @endpush
 
 @push('js-libraries')
-    <script src="{{asset('backend/modules/summernote/summernote-bs4.js')}}"></script>
+<script src="{{asset('backend/modules/summernote/summernote-bs4.js')}}"></script>
 @endpush

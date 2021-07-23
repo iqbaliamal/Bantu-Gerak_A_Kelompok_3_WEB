@@ -2,7 +2,7 @@
   <footer id="footer">
       <div class="container">
           <div class="copyright">
-            Copyright &copy; <strong>Bantu Gerak {{date("Y")}} </strong>. All Rights Reserved
+              Copyright &copy; <strong>Bantu Gerak {{date("Y")}} </strong>. All Rights Reserved
               {{-- &copy; Copyright <strong>Reveal</strong>. All Rights Reserved --}}
           </div>
           <div class="credits">
@@ -43,25 +43,27 @@
   <script src="{{asset('user/js/main.js')}}"></script>
 
   <script>
-    @if(session()->has('success'))
+      @if(session() - > has('success'))
 
-Swal.fire({
-    icon: 'success',
-    text: '{{ session('success') }}',
-    showConfirmButton: false,
-    timer: 3000
-})
+      Swal.fire({
+          icon: 'success',
+          text: '{{ session('
+          success ') }}',
+          showConfirmButton: false,
+          timer: 3000
+      })
 
-@elseif(session()->has('error'))
+      @elseif(session() - > has('error'))
 
-Swal.fire({
-    icon: 'error',
-    title: '{{ session('error') }}',
-    showConfirmButton: false,
-    timer: 3000
-})
+      Swal.fire({
+          icon: 'error',
+          title: '{{ session('
+          error ') }}',
+          showConfirmButton: false,
+          timer: 3000
+      })
 
-@endif
+      @endif
 
   </script>
 

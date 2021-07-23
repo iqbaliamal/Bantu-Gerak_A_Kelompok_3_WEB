@@ -19,7 +19,7 @@
                     <div class="card">
                         <div class="card-header">
                             <a href="{{route('admin.publication.create')}}">
-                            <button class="btn btn-primary">Tambah Publication</button>
+                                <button class="btn btn-primary">Tambah Publication</button>
                             </a>
                         </div>
                         <div class="card-body">
@@ -42,10 +42,10 @@
                                             <td><img src="{{$row->image}}" style="width: 200px"></td>
                                             <td>{{strip_tags($row->content)}}</td>
                                             <td>
-                                                <a href="{{route('admin.publication.edit', $row->id)}}" class="btn btn-warning"> <i
-                                                        class="fa fa-edit"></i> </a>
-                                                <button onClick="destroy(this.id)" id="{{ $row->id }}" class="btn btn-danger"><i
-                                                    class="fa fa-trash"></i></button>
+                                                <a href="{{route('admin.publication.edit', $row->id)}}"
+                                                    class="btn btn-warning"> <i class="fa fa-edit"></i> </a>
+                                                <button onClick="destroy(this.id)" id="{{ $row->id }}"
+                                                    class="btn btn-danger"><i class="fa fa-trash"></i></button>
                                             </td>
                                         </tr>
                                         @endforeach
@@ -166,12 +166,14 @@
             }
         })
     }
+
 </script>
 @endsection
 
 @push('css-libraries')
 <link rel="stylesheet" href="{{asset('backend/modules/datatables/datatables.min.css')}}">
-<link rel="stylesheet" href="{{asset('backend/modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css')}}">
+<link rel="stylesheet"
+    href="{{asset('backend/modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css')}}">
 <link rel="stylesheet" href="{{asset('backend/modules/datatables/Select-1.2.4/css/select.bootstrap4.min.css')}}">
 @endpush
 
@@ -188,9 +190,10 @@
 
 @push('customjs')
 <script type="text/javascript">
-    $(document).ready(function() {
-      $('#tabel-publication').DataTable();
+    $(document).ready(function () {
+        $('#tabel-publication').DataTable();
     });
+
 </script>
 
 

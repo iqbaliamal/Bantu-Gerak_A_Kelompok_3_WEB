@@ -24,7 +24,7 @@
         <h1 class="title-detailpage mt-5">{{$blog->title}}</h1>
         <p class="publisher"><i class="fas fa-user fa-sm"></i>&nbsp;{{ $blog->user->name}}</p>
         <p class="publisher">Created at: {{ Carbon\Carbon::parse($blog->created_at)->format('d-m-Y') }}</p>
-<hr>
+        <hr>
         <div class="mt-4 mb-5 text-left">
             <h4><strong>{{$blog->title}}</strong></h4>
             <p>{!!$blog->content!!}</p>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\CampaignController;
 use App\Http\Controllers\Api\DonationController;
 use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Api\RegisterController;
@@ -36,5 +37,12 @@ Route::post('/login', [LoginController::class, 'login']);
 /**
  * Api Campaign
  */
-// Route::get('/campaign', [CampaignController::class, 'index']);
-// Route::get('/campaign/{slug}', [CampaignController::class, 'show']);
+Route::get('/campaign', [CampaignController::class, 'index']);
+Route::get('/campaign/{slug}', [CampaignController::class, 'show']);
+
+/**
+ * Api Donation
+ */
+Route::get('/donation', [DonationController::class, 'index']);
+Route::post('/donation', [DonationController::class, 'store']);
+Route::post('/donation/notification', [DonationController::class, 'notificationHandler']);

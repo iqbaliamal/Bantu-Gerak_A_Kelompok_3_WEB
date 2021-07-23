@@ -42,10 +42,10 @@
                                             <td>{{moneyFormat($campaign->target_donation )}}</td>
                                             <td>{{$campaign->max_date }}</td>
                                             <td>
-                                                <a href="{{route('admin.campaign.edit', $campaign->id)}}" class="btn btn-warning"> <i
-                                                        class="fa fa-edit"></i> </a>
-                                                <button onClick="destroy(this.id)" id="{{ $campaign->id }}" class="btn btn-danger"><i
-                                                    class="fa fa-trash"></i></button>
+                                                <a href="{{route('admin.campaign.edit', $campaign->id)}}"
+                                                    class="btn btn-warning"> <i class="fa fa-edit"></i> </a>
+                                                <button onClick="destroy(this.id)" id="{{ $campaign->id }}"
+                                                    class="btn btn-danger"><i class="fa fa-trash"></i></button>
                                             </td>
                                         </tr>
                                         @endforeach
@@ -76,71 +76,72 @@
                         <label>Gambar</label>
                         <input type="file" class="form-control @error('image') is-invalid @enderror" name="image"
                             value="{{ old('image') }}">
-                            @error('image')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        @error('image')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
 
                     <div class="form-group">
                         <label>Judul Campaign</label>
                         <input type="text" class="form-control @error('title') is-invalid @enderror" name="title"
                             value="{{ old('title') }}">
-                            @error('title')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                        @error('title')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
 
                     <div class="form-group">
                         <label>Kategori</label>
-                        <select name="category_id" class="form-control  @error('category_id') is-invalid @enderror" value="{{ old('category_id') }}">
+                        <select name="category_id" class="form-control  @error('category_id') is-invalid @enderror"
+                            value="{{ old('category_id') }}">
                             @foreach($categories as $category)
                             <option value="{{$category->id}}">{{$category->name}}</option>
                             @endforeach
                         </select>
                         @error('category_id')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
 
                     <div class="form-group">
                         <label>Target Donasi</label>
-                        <input type="number" class="form-control @error('target_donation') is-invalid @enderror" name="target_donation"
-                            value="{{ old('target_donation') }}">
+                        <input type="number" class="form-control @error('target_donation') is-invalid @enderror"
+                            name="target_donation" value="{{ old('target_donation') }}">
+                        @error('target_donation')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
-                    @error('target_donation')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
 
                     <div class="form-group">
                         <label>Tanggal Berahir</label>
                         <input type="date" class="form-control @error('max_date') is-invalid @enderror" name="max_date"
                             value="{{ old('max_date') }}">
+                        @error('max_date')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
-                    @error('max_date')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
 
 
                     <div class="form-group">
                         <label>Deskripsi</label>
                         <textarea class="form-control @error('description') is-invalid @enderror" name="description"
                             value="{{ old('description') }}"></textarea>
+                        @error('description')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
-                    @error('description')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
 
                 </div>
                 <div class="modal-footer">
@@ -204,13 +205,15 @@
             }
         })
     }
+
 </script>
 
 @endsection
 
 @push('css-libraries')
 <link rel="stylesheet" href="{{asset('backend/modules/datatables/datatables.min.css')}}">
-<link rel="stylesheet" href="{{asset('backend/modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css')}}">
+<link rel="stylesheet"
+    href="{{asset('backend/modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css')}}">
 <link rel="stylesheet" href="{{asset('backend/modules/datatables/Select-1.2.4/css/select.bootstrap4.min.css')}}">
 @endpush
 
@@ -227,9 +230,10 @@
 
 @push('customjs')
 <script type="text/javascript">
-    $(document).ready(function() {
-      $('#tabel-campaign').DataTable();
+    $(document).ready(function () {
+        $('#tabel-campaign').DataTable();
     });
+
 </script>
 
 

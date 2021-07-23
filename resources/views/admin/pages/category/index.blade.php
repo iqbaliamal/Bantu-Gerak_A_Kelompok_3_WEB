@@ -40,10 +40,10 @@
                                             <td><img src="{{$kategori->image}}" style="width: 200px"></td>
                                             <td>{{$kategori->description}}</td>
                                             <td>
-                                                <a href="{{route('admin.category.edit', $kategori->id)}}" class="btn btn-warning"> <i
-                                                        class="fa fa-edit"></i> </a>
-                                                <button onClick="destroy(this.id)" id="{{ $kategori->id }}" class="btn btn-danger"><i
-                                                    class="fa fa-trash"></i></button>
+                                                <a href="{{route('admin.category.edit', $kategori->id)}}"
+                                                    class="btn btn-warning"> <i class="fa fa-edit"></i> </a>
+                                                <button onClick="destroy(this.id)" id="{{ $kategori->id }}"
+                                                    class="btn btn-danger"><i class="fa fa-trash"></i></button>
                                             </td>
                                         </tr>
                                         @endforeach
@@ -72,35 +72,35 @@
                     <div class="form-group">
                         <label>Nama Kategori</label>
                         <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
-                            value="{{ old('name') }}" required>
+                            value="{{ old('name') }}">
+                        @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
-                    @error('name')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
 
                     <div class="form-group">
                         <label>Gambar</label>
                         <input type="file" class="form-control @error('image') is-invalid @enderror" name="image"
-                            value="{{ old('image') }}" required>
+                            value="{{ old('image') }}">
+                        @error('image')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
-                    @error('image')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
 
                     <div class="form-group">
                         <label>Deskripsi</label>
                         <textarea class="form-control @error('description') is-invalid @enderror" name="description"
-                            value="{{ old('description') }}" required></textarea>
+                            value="{{ old('description') }}"></textarea>
+                        @error('description')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
-                    @error('description')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
 
                 </div>
                 <div class="modal-footer">
@@ -164,13 +164,15 @@
             }
         })
     }
+
 </script>
 
 @endsection
 
 @push('css-libraries')
 <link rel="stylesheet" href="{{asset('backend/modules/datatables/datatables.min.css')}}">
-<link rel="stylesheet" href="{{asset('backend/modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css')}}">
+<link rel="stylesheet"
+    href="{{asset('backend/modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css')}}">
 <link rel="stylesheet" href="{{asset('backend/modules/datatables/Select-1.2.4/css/select.bootstrap4.min.css')}}">
 @endpush
 
@@ -187,11 +189,11 @@
 
 @push('customjs')
 <script type="text/javascript">
-    $(document).ready(function() {
-      $('#tabel-kategori').DataTable();
+    $(document).ready(function () {
+        $('#tabel-kategori').DataTable();
     });
+
 </script>
 
 
 @endpush
-

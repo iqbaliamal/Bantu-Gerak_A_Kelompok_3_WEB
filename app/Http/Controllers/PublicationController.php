@@ -49,12 +49,12 @@ class PublicationController extends Controller
                 'content'   => 'required',
             ],
             [
-                'title.required' => 'Title wajib diisi',
-                'image.required' => 'Image wajib diisi',
-                'image.image'=>'image berupa gambar',
-                'image.mimes'=>'image berekstensi jpeg,jpg,png',
-                'image.max'=>'image resolusion mas 2000',
-                'content.required' => 'Image wajib diisi',
+                'title.required'    => 'Kolom Title wajib diisi',
+                'image.required'    => 'Kolom Image wajib diisi',
+                'image.image'       => 'Gambar harus berupa gambar',
+                'image.mimes'       => 'Gambar berekstensi jpeg,jpg,png',
+                'image.max'         => 'Ukuran Gambar maksimal 2MB',
+                'content.required'  => 'Kolom Content wajib diisi',
             ]
         );
 
@@ -101,10 +101,17 @@ class PublicationController extends Controller
      */
     public function update(Request $request, Publication $publication)
     {
-        $this->validate($request, [
-            'title'     => 'required',
-            'content'   => 'required'
-        ]);
+        $this->validate(
+            $request,
+            [
+                'title'     => 'required',
+                'content'   => 'required'
+            ],
+            [
+                'title.required'    => 'Kolom Title wajib diisi',
+                'content.required'  => 'Kolom Content wajib diisi',
+            ]
+        );
 
         //check jika image kosong
         if ($request->file('image') == '') {

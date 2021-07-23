@@ -51,7 +51,8 @@
 
 @push('css-libraries')
 <link rel="stylesheet" href="{{asset('backend/modules/datatables/datatables.min.css')}}">
-<link rel="stylesheet" href="{{asset('backend/modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css')}}">
+<link rel="stylesheet"
+    href="{{asset('backend/modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css')}}">
 <link rel="stylesheet" href="{{asset('backend/modules/datatables/Select-1.2.4/css/select.bootstrap4.min.css')}}">
 @endpush
 
@@ -68,9 +69,10 @@
 
 @push('customjs')
 <script type="text/javascript">
-    $(document).ready(function() {
-      $('#tabel-donatur').DataTable();
+    $(document).ready(function () {
+        $('#tabel-donatur').DataTable();
     });
+
 </script>
 
 

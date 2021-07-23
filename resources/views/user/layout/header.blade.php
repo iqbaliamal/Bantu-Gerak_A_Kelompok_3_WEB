@@ -5,13 +5,28 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Reveal Bootstrap Template</title>
+    <title>Bantu Gerak</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="{{asset('user/img/favicon.png')}}" rel="icon">
-    <link href="{{asset('user/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
+    <link rel="apple-touch-icon" sizes="57x57" href="{{asset('favicon/apple-icon-57x57.png')}}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{asset('favicon/apple-icon-60x60.png')}}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{asset('favicon/apple-icon-72x72.png')}}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{asset('favicon/apple-icon-76x76.png')}}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{asset('favicon/apple-icon-114x114.png')}}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{asset('favicon/apple-icon-120x120.png')}}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{asset('favicon/apple-icon-144x144.png')}}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{asset('favicon/apple-icon-152x152.png')}}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('favicon/apple-icon-180x180.png')}}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{asset('favicon/android-icon-192x192.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('favicon/favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{asset('favicon/favicon-96x96.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('favicon/favicon-16x16.png')}}">
+    <link rel="manifest" href="{{asset('favicon/manifest.json')}}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="{{asset('favicon/ms-icon-144x144.png')}}">
+    <meta name="theme-color" content="#ffffff">
 
     <!-- Google Fonts -->
     <link
@@ -54,14 +69,13 @@
         <div class="container d-flex justify-content-center justify-content-md-between">
             <div class="contact-info d-flex align-items-center">
                 <i class="bi bi-envelope d-flex align-items-center"><a
-                        href="mailto:contact@example.com">contact@example.com</a></i>
-                <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 5589 55488 55</span></i>
+                        href="mailto:bantugerak@gmail.com">bantugerak@gmail.com</a></i>
+                <i class="bi bi-phone d-flex align-items-center ms-4 ml-2"><span>+62 822 2974 1767</span></i>
             </div>
             <div class="social-links d-none d-md-flex align-items-center">
                 <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
                 <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
                 <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
             </div>
         </div>
     </section><!-- End Top Bar-->
@@ -86,11 +100,11 @@
                     <li class="dropdown"><a href="#"><span>Akun</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
                             <li>
-                            @if(auth()->user()->role=='user')
+                                @if(auth()->user()->role=='user')
                                 <a href="{{route('user.donasi.index')}}">Riwayat Donasi</a>
-                            @else
+                                @else
                                 <a href="{{route('admin.dashboard.index')}}">Dashboard</a>
-                            @endif
+                                @endif
                             </li>
                             <hr>
                             <li><a href="{{route('logout')}}">Logout</a></li>
