@@ -17,14 +17,14 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <form action="{{route('admin.faq.update', $Faq->id)}}" method="post"
+                            <form action="{{route('admin.faq.update', $faq->id)}}" method="post"
                                 enctype="multipart/form-data">
                                 {{csrf_field()}}
                                 @method('PUT')
                                 <div class="form-group">
                                     <label>Pertanyaan</label>
                                     <input type="text" class="form-control @error('pertanyaan') is-invalid @enderror"
-                                        name="pertanyaan" value="{{ $Faq->pertanyaan }}">
+                                        name="pertanyaan" value="{{ $faq->pertanyaan }}">
                                     @error('pertanyaan')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -35,7 +35,7 @@
                                 <div class="form-group">
                                     <label>Jawaban</label>
                                     <input type="text" class="form-control @error('jawaban') is-invalid @enderror"
-                                        name="jawaban" value="{{ $Faq->jawaban }}">
+                                        name="jawaban" value="{{ $faq->jawaban }}">
                                     @error('jawaban')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

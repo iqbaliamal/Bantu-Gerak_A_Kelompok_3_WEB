@@ -36,15 +36,11 @@ class FaqController extends Controller
 
             ],
             [
-                'pertanyaan.required'        => 'pertanyaan wajib diisi',
-                'jawaban.required'           => 'jawaban wajib diisi',
+                'pertanyaan.required'        => 'Kolom Pertanyaan wajib diisi',
+                'jawaban.required'           => 'Kolom Jawaban wajib diisi',
 
             ]
         );
-
-        //upload image
-        $image = $request->file('image');
-        $image->storeAs('public/categories', $image->hashName());
 
         //save to DB
         $faq = Faq::create([
@@ -95,7 +91,7 @@ class FaqController extends Controller
         $this->validate(
             $request,
             [
-                'pertanyaan'          => 'required,' . $faq->id,
+                'pertanyaan'          => 'required',
                 'jawaban'   => 'required'
             ],
             [
@@ -110,6 +106,14 @@ class FaqController extends Controller
                 'jawaban'          => $request->jawaban,
 
             ]);
+
+            if ($faq) {
+                //redirect dengan pesan sukses
+                return redirect()->route('admin.faq.index')->with(['success' => 'Data Berhasil Diupdate!']);
+            } else {
+                //redirect dengan pesan error
+                return redirect()->route('admin.faq.index')->with(['error' => 'Data Gagal Diupdate!']);
+            }
 
 
     }

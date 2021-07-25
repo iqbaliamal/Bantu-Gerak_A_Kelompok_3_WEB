@@ -28,16 +28,14 @@
                                             <th>#</th>
                                             <th>Pertanyaan</th>
                                             <th>Jawaban</th>
-
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach($data as $Faq)
                                         <tr>
                                             <td>{{$loop->iteration}}</td>
-                                            <td>{{$Faq->name}}</td>
-                                            <td><img src="{{$Faq->image}}" style="width: 200px"></td>
-                                            <td>{{$Faq->description}}</td>
+                                            <td>{{$Faq->pertanyaan}}</td>
+                                            <td>{{$Faq->jawaban}}</td>
                                             <td>
                                                 <a href="{{route('admin.faq.edit', $Faq->id)}}"
                                                     class="btn btn-warning"> <i class="fa fa-edit"></i> </a>
