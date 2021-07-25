@@ -39,7 +39,7 @@
                         Kebaikan</span></a>
             </li>
             <li class="{{ request()->is('admin/faq') ? 'active' : '' }}">
-                <a href="#" class="nav-link"><i class="fas fa-question-circle"></i><span>FAQ</span></a>
+                <a href="{{route('admin.faq.index')}}" class="nav-link"><i class="fas fa-question-circle"></i><span>FAQ</span></a>
             </li>
 
             <li class="menu-header">Blog</li>
