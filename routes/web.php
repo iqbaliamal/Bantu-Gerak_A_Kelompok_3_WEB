@@ -7,6 +7,7 @@ use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DonaturController;
+use App\Http\Controllers\FaqController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\PublicationController;
@@ -71,6 +72,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
         Route::resource('/publication', PublicationController::class, ['as' => 'admin']);
         Route::get('/profile/{id}', [ProfileController::class, 'index'])->name('admin.profile.index');
         Route::post('/profile/update/{id}', [ProfileController::class, 'update'])->name('admin.profile.update');
+        Route::resource('/faq', FaqController::class, ['as' => 'admin']);
     });
 });
 
