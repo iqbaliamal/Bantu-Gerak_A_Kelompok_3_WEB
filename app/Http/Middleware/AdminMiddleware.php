@@ -19,7 +19,7 @@ class AdminMiddleware
     {
         //Cek Jika bukan admin maka akan redirect logout
         if (Auth::user()->role != "admin") {
-            return redirect()->to('logout');
+            return redirect()->back();
         }
         return $next($request);
     }

@@ -16,6 +16,7 @@ use App\Http\Controllers\User\LandingpageControler;
 use App\Models\Publication;
 use GuzzleHttp\Middleware;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -47,7 +48,7 @@ Route::group(['middleware' => 'user'], function () {
 });
 
 Auth::routes();
-Route::get('logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('logout', [LoginController::class, 'logout'])->name('user.logout');
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('show.login');
 Route::post('login', [LoginController::class, 'login'])->name('login');
 // Route::get('login', [LoginController::class, 'login'])->name('login');
@@ -76,4 +77,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
 //404
 Route::fallback(function () {
     return view('error-404');
+});
+
+Route::get('/linkstorage', function () {
+    Artisan::call('storage:link');
+    // $exitCode = Artisan::call('storage:link', ['--force' => true]);
+    // $exitCode = "Artisan::call('storage:link', ['--force' => true])asdasd";
+    // echo $exitCode;
 });

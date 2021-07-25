@@ -26,7 +26,17 @@ class RegisterController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response()->json($validator->errors(), 400);
+            $val = $validator->errors()->all();
+            return $this->error($val[0]);
+            // $errors = $validator->errors();
+            // throw new \Illuminate\Http\Exceptions\HttpResponseException(response()->json(
+            //     [
+            //         'success' => 0,
+            //         'message' => 'Error : Silahkan periksa kembali form registrasi anda',
+            //     ],
+            //     \Illuminate\Http\JsonResponse::HTTP_UNPROCESSABLE_ENTITY
+            // ));
+            // return response()->json($validator->errors(), 400);
         }
 
         //create user
@@ -38,10 +48,28 @@ class RegisterController extends Controller
         ]);
 
         //return JSON
+        if ($user) {
+            // jika berhasil
+            return response()->json([
+                'success' => 1,
+                'message' => 'Register Berhasil!',
+                'data'    => $user,
+            ], 201);
+        } else {
+            return response()->json([
+                'success' => 0,
+                'message' => 'Registrasi Gagal!',
+            ], 400);
+        }
+        // jika gagal
+        // return $this->error('Registrasi gagal!');
+    }
+
+    public function error($pesan)
+    {
         return response()->json([
-            'success' => true,
-            'message' => 'Register Berhasil!',
-            'data'    => $user,
-        ], 201);
+            'success' => 0,
+            'message' => $pesan,
+        ], 400);
     }
 }

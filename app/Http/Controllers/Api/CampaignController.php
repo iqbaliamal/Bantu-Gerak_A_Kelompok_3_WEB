@@ -17,15 +17,19 @@ class CampaignController extends Controller
     public function index()
     {
         //get data campaigns
-        $campaigns = Campaign::with('user')->with('sumDonation')->when(request()->q, function ($campaigns) {
-            $campaigns = $campaigns->where('title', 'like', '%' . request()->q . '%');
-        })->latest()->paginate(5);
+        // $campaigns = Campaign::with('user')->with('sumDonation')->when(request()->q, function ($campaigns) {
+        //     $campaigns = $campaigns->where('title', 'like', '%' . request()->q . '%');
+        // })->latest()->get();
+
+        $campaigns = Campaign::with('user')->with('sumDonation')->limit(5)->get();
+
+
 
         //return with response JSON
         return response()->json([
-            'success' => true,
+            'success' => 1,
             'message' => 'List Data Campaigns',
-            'data'    => $campaigns,
+            'campaigns'    => $campaigns,
         ], 200);
     }
 
@@ -47,7 +51,7 @@ class CampaignController extends Controller
 
             //return with response JSON
             return response()->json([
-                'success'   => true,
+                'success'   => 1,
                 'message'   => 'Detail Data Campaign : ' . $campaign->title,
                 'data'      => $campaign,
                 'donations' => $donations
@@ -56,7 +60,7 @@ class CampaignController extends Controller
 
         //return with response JSON
         return response()->json([
-            'success' => false,
+            'success' => 0,
             'message' => 'Data Campaign Tidak Ditemukan!',
         ], 404);
     }
