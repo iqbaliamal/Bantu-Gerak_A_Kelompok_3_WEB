@@ -26,17 +26,34 @@ class DonationController extends Controller
      *
      * @return void
      */
-    public function index()
+    public function index($id)
     {
         //get data donations
-        $donations = Donation::with('campaign')->where('user_id', auth()->guard('api')->user()->id)->latest()->get();
+        // $donations = Donation::with('campaign')->where('user_id', auth()->guard('api')->user()->id)->latest()->get();
+
+        $donations = Donation::with('campaign')->with(['user'])->whereHas('user', function ($query) use ($id) {
+            $query->whereId($id);
+        })->latest()->get();
+
+        if (!empty($donations->campaign)) {
+            return response()->json([
+                'success' => 1,
+                'message' => 'List Donation',
+                'donations' => collect($donations)
+            ]);
+        } else {
+            return response()->json([
+                'success' => 0,
+                'message' => 'Data kosong!'
+            ]);
+        }
 
         //return with response JSON
-        return response()->json([
-            'success' => true,
-            'message' => 'List Data Donations : ' . auth()->guard('api')->user()->name,
-            'data'    => $donations,
-        ], 200);
+        // return response()->json([
+        //     'success' => true,
+        //     'message' => 'List Data Donations : ' . auth()->guard('api')->user()->name,
+        //     'data'    => $donations,
+        // ], 200);
     }
 
     /**

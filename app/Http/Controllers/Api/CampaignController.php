@@ -21,7 +21,7 @@ class CampaignController extends Controller
         //     $campaigns = $campaigns->where('title', 'like', '%' . request()->q . '%');
         // })->latest()->get();
 
-        $campaigns = Campaign::with('user')->with('sumDonation')->limit(5)->get();
+        $campaigns = Campaign::with('user')->with('sumDonation')->latest()->get();
 
 
 

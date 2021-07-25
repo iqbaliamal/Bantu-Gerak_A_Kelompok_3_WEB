@@ -43,6 +43,6 @@ Route::get('/campaign/{slug}', [CampaignController::class, 'show']);
 /**
  * Api Donation
  */
-Route::get('/donation', [DonationController::class, 'index']);
+Route::get('/donation/{id}', [DonationController::class, 'index']);
 Route::post('/donation', [DonationController::class, 'store']);
 Route::post('/donation/notification', [DonationController::class, 'notificationHandler']);
