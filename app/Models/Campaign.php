@@ -40,6 +40,8 @@ class Campaign extends Model
         return $this->hasMany(Donation::class)->selectRaw('donations.campaign_id,SUM(donations.amount) as total')->where('donations.status', 'success')->groupBy('donations.campaign_id');
     }
 
+
+
     /**
      * getImageAttribute
      *

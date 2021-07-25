@@ -107,7 +107,7 @@
                                 @endif
                             </li>
                             <hr>
-                            <li><a href="{{route('logout')}}">Logout</a></li>
+                            <li><a href="{{route('user.logout')}}">Logout</a></li>
                         </ul>
                     </li>
                     @endauth

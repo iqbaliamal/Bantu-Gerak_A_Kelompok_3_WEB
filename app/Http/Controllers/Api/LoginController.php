@@ -24,20 +24,30 @@ class LoginController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response()->json($validator->errors(), 400);
+            $val = $validator->errors()->all();
+            return $this->error($val[0]);
+            // $errors = $validator->errors();
+            // throw new \Illuminate\Http\Exceptions\HttpResponseException(response()->json(
+            //     [
+            //         'success' => 0,
+            //         'message' => 'Error : Silahkan periksa kembali form registrasi anda',
+            //     ],
+            //     \Illuminate\Http\JsonResponse::HTTP_UNPROCESSABLE_ENTITY
+            // ));
+            // return response()->json($validator->errors(), 400);
         }
 
         $user = User::where('email', $request->email)->first();
 
         if (!$user || !Hash::check($request->password, $user->password)) {
             return response()->json([
-                'success' => false,
-                'message' => 'Login Failed!',
+                'success' => 0,
+                'message' => 'Login Failed! User atau Password salah!',
             ], 401);
         }
 
         return response()->json([
-            'success' => true,
+            'success' => 1,
             'message' => 'Login Berhasil!',
             'data'    => $user,
         ], 200);
@@ -55,9 +65,17 @@ class LoginController extends Controller
 
         if ($removeToken) {
             return response()->json([
-                'success' => true,
+                'success' => 1,
                 'message' => 'Logout Berhasil!',
             ]);
         }
+    }
+
+    public function error($pesan)
+    {
+        return response()->json([
+            'success' => 0,
+            'message' => $pesan,
+        ], 400);
     }
 }

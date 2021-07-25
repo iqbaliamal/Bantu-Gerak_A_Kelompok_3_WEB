@@ -37,7 +37,7 @@ Route::post('/login', [LoginController::class, 'login']);
 /**
  * Api Campaign
  */
-Route::get('/campaign', [CampaignController::class, 'index']);
+Route::get('/campaign', [App\Http\Controllers\Api\CampaignController::class, 'index']);
 Route::get('/campaign/{slug}', [CampaignController::class, 'show']);
 
 /**
