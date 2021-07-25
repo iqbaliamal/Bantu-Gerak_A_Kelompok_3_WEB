@@ -15,4 +15,4 @@
 - php artisan migrate
 - php artisan key:generate
 - php artisan serve
-- 
+- php artisan db:seed
