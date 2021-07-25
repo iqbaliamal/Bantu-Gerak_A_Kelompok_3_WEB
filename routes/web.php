@@ -13,6 +13,7 @@ use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\PublicationController;
 use App\Http\Controllers\User\BlogController;
 use App\Http\Controllers\User\DonasiUserController;
+use App\Http\Controllers\User\FaqUserController;
 use App\Http\Controllers\User\LandingpageControler;
 use App\Models\Publication;
 use GuzzleHttp\Middleware;
@@ -44,6 +45,8 @@ Route::get('/blog/{slug}', [BlogController::class, 'getBlog'])->name('detailBlog
 Route::get('/donation', [DonasiUserController::class, 'index'])->name('user.donasi.index');
 Route::post('/donation', [DonasiUserController::class, 'store'])->name('user.donasi.store');
 Route::post('/donasi/notification', [DonasiUserController::class, 'notificationHandler'])->name('user.donasi.handler');
+
+Route::get('/faq', [FaqUserController::class, 'index'])->name('user.faq.index');
 
 Route::group(['middleware' => 'user'], function () {
 });

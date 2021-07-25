@@ -425,8 +425,14 @@
     opacity: 0.9;
 }
 
-.section-4 {
-    background-color: var(--red-secondary-color);
+/**
+ *
+ * Section 4
+ *
+ */
+
+ .section-4 {
+    background-color: #fff;
     padding: 5rem 0;
 }
 
@@ -440,43 +446,43 @@
 }
 
 .accordion-button {
-    background-color: var(--red-primary-color);
-    color: var(--white-color);
+    background-color: #0066FF;
+    color: #2d8acb;
     font-weight: 600;
     /* border-bottom: 1px solid rgb(100 7 0 / 28%); */
 }
 
 .accordion-item {
-    background-color: var(--red-primary-color);
+    background-color: #1A1A1A;
     border: 1px solid #ffffff;
 }
 
 .accordion-button:not(.collapsed) {
-    color: var(--red-secondary-color);
-    background-color: var(--white-color);
+    color: #fff;
+    background-color: #2d8acb;
     box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%);
 }
 
 .accordion-collapse {
-    color: var(--red-secondary-color);
-    background-color: var(--white-color);
+    color: #fff;
+    background-color: #2d8acb;
 }
 
 .accordion-button:focus {
-    border-color: var(--white-color);
+    border-color: #2d8acb;
     outline: 0;
     box-shadow: none;
 
 }
 
 .accordion-button::after {
-    color: var(--white-color);
-    fill: var(--red-third-color);
+    color: #2d8acb;
+    fill: #f49e0b;
     background-image: url('../svg/arrow-down-white.svg');
 }
 
 .accordion-button:not(.collapsed)::after {
-    fill: var(--red-third-color);
+    fill: #f49e0b;
     background-image: url('../svg/arrow-up-black.svg');
 }
 
@@ -488,3 +494,5 @@
     /* padding: 1rem 1.25rem; */
     border: 1px solid #fff;
 }
+
+/*=====  End of Sections  ======*/

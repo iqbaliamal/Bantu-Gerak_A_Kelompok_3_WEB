@@ -22,6 +22,8 @@
 
   <!-- Vendor JS Files -->
   <script src="{{asset('user/vendor/jquery/jquery.min.js')}}"></script>
+  <script src="{{asset('backend/modules/bootstrap/js/bootstrap.js')}}"></script>
+  <script rel="stylesheet" href="{{asset('user/vendor/aos/aos.js')}}"></script>
   <script src="{{asset('backend/modules/fontawesome/js/all.min.js')}}"></script>
   <script src="{{asset('backend/modules/fontawesome/js/fontawesome.js')}}"></script>
   <script src="{{asset('backend/modules/fontawesome/js/brands.js')}}"></script>

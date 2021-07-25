@@ -33,6 +33,10 @@
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700"
         rel="stylesheet">
 
+        <!-- Template Main CSS File -->
+    <link href="{{asset('user/css/app.css')}}" rel="stylesheet">
+    <link href="{{asset('user/css/style.css')}}" rel="stylesheet">
+
     <!-- Vendor CSS Files -->
     <link href="{{asset('user/vendor/aos/aos.css')}}" rel="stylesheet">
     <link href="{{asset('backend/modules/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -44,12 +48,13 @@
     <link href="{{asset('user/vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
     <link href="{{asset('user/vendor/glightbox/css/glightbox.min.css')}}" rel="stylesheet">
     <link href="{{asset('user/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('user/vendor/aos/aos.css')}}">
 
 
 
-    <!-- Template Main CSS File -->
-    <link href="{{asset('user/css/style.css')}}" rel="stylesheet">
+    {{-- <!-- Template Main CSS File -->
     <link href="{{asset('user/css/app.css')}}" rel="stylesheet">
+    <link href="{{asset('user/css/style.css')}}" rel="stylesheet"> --}}
 
     {{-- midtrans js --}}
     @stack('midtrans')
