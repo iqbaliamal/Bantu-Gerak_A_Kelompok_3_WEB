@@ -12,8 +12,11 @@ class FaqUserController extends Controller
     public function index()
     {
         # code...
-        $faq = Faq::all();
+        $faq = Faq::orderBy('id', 'desc')->get();
 
-        return View('user.pages.faq', compact( 'faq' ));
+        // dd($faq);
+
+        // return View('', compact( 'faq' ));
+        return view('user.pages.faq', compact('faq'));
     }
 }

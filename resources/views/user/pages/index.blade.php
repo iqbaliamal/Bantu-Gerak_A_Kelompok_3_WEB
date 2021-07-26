@@ -90,38 +90,48 @@
 
                 <div class="row ">
                     <div class="col-md-4 col-sm-6 col-12">
-                        <div class="card shadow border-0 p-5 recap-list">
-                            <span class="recap-list-icon">
-                                <img src="{{asset('user/img/icon/donasi.svg')}}" alt="">
-                            </span>
-                            <span class="recap-list-detail">
-                                <h1 id="ododonasi" class="odometer odometer-auto-theme mb-1">{{$campaigns_count}}</h1>
-                                <p>Penerima Manfaat</p>
-                            </span>
+                        <div class="card shadow border-0 p-4 recap-list">
+                            <div class="row justify-content-center">
+                                <span class="recap-list-icon">
+                                    <img src="{{asset('user/img/icon/donasi.svg')}}" alt="">
+                                </span>
+                            </div>
+                            <div class="row justify-content-center mt-4">
+                                <span class="recap-list-detail">
+                                    <h1 id="ododonasi" class="odometer odometer-auto-theme mb-1">{{$campaigns_count}}</h1>
+                                    <p>Penerima Manfaat</p>
+                                </span>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-6 col-12">
-                        <div class="card shadow border-0 p-5 recap-list">
-                            <span class="recap-list-icon">
-                                <img src="{{asset('user/img/icon/relawan.svg')}}" alt="">
-                            </span>
-                            <span class="recap-list-detail">
-
-                                <h4 id="odorelawan" class="odometer odometer-auto-theme mb-1"><strong>{{moneyFormat($sum_donations)}}</strong></h4>
-                                <p>Total Donasi</p>
-                            </span>
+                        <div class="card shadow border-0 p-4 recap-list">
+                            <div class="row justify-content-center">
+                                <span class="recap-list-icon">
+                                    <img src="{{asset('user/img/icon/relawan.svg')}}" alt="">
+                                </span>
+                            </div>
+                            <div class="row justify-content-center mt-4">
+                                <span class="recap-list-detail">
+                                    <h4 id="odorelawan" class="odometer odometer-auto-theme mb-1"><strong>{{moneyFormat($sum_donations)}}</strong></h4>
+                                    <p>Total Donasi</p>
+                                </span>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-6 col-12">
-                        <div class="card shadow border-0 p-5 recap-list">
-                            <span class="recap-list-icon">
-                                <img src="{{asset('user/img/icon/donatur.svg')}}" alt="">
-                            </span>
-                            <span class="recap-list-detail">
-
-                                <h1 id="ododonatur" class="odometer odometer-auto-theme mb-1">{{$programs_count }}</h1>
-                                <p>Program Kebaikan</p>
-                            </span>
+                        <div class="card shadow border-0 p-4 recap-list">
+                            <div class="row justify-content-center">
+                                <span class="recap-list-icon">
+                                    <img src="{{asset('user/img/icon/donatur.svg')}}" alt="">
+                                </span>
+                            </div>
+                            <div class="row justify-content-center mt-4">
+                                <span class="recap-list-detail">
+                                    <h1 id="ododonatur" class="odometer odometer-auto-theme mb-1">{{$programs_count }}</h1>
+                                    <p>Program Kebaikan</p>
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>

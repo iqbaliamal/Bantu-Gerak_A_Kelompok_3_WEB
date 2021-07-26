@@ -8,6 +8,7 @@ use App\Models\Donation;
 use App\Models\Program;
 use App\Models\Publication;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class LandingpageControler extends Controller
@@ -15,7 +16,7 @@ class LandingpageControler extends Controller
     public function index()
     {
         // $campaigns = Campaign::orderBy('id', 'desc')->limit(8)->get();
-        $campaigns = Campaign::with('user')->with('sumDonation')->limit(8)->get();
+        $campaigns = Campaign::with('user')->with('sumDonation')->limit(8)->latest()->get();
         $programs = Program::all();
         $publications = Publication::orderBy('id', 'desc')->limit(6)->get();
 

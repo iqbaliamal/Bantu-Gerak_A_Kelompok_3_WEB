@@ -30,7 +30,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="title-campaign mt-3">
-                        <a href="list-campaign/slug-slug">
+                        <a href="list-campaign/{{$riwayat->campaign->slug}}">
                             <h3>{{$riwayat->campaign->title}}</h3>
                         </a>
                     </div>

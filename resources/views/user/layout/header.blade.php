@@ -50,6 +50,8 @@
     <link href="{{asset('user/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('user/vendor/aos/aos.css')}}">
 
+    @stack('custom-css')
+
 
 
     {{-- <!-- Template Main CSS File -->

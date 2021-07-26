@@ -39,6 +39,8 @@
   <script src="{{asset('user/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
+  @stack('custom-js')
+
 
 
   <!-- Template Main JS File -->
